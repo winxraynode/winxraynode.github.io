@@ -1,4 +1,4 @@
-# 「11月19日」最高速度21.4M/S，2024年WinXray每天更新免费节点订阅链接  更新时间 2024-11-19 06:52:30
+# 「11月21日」最高速度20.9M/S，2024年WinXray每天更新免费节点订阅链接  更新时间 2024-11-21 09:58:47
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://winxraynode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://winxraynode.github.io/uploads/2024/11/0-20241119.yaml
-- https://winxraynode.github.io/uploads/2024/11/1-20241119.yaml
-- https://winxraynode.github.io/uploads/2024/11/2-20241119.yaml
-- https://winxraynode.github.io/uploads/2024/11/3-20241119.yaml
-- https://winxraynode.github.io/uploads/2024/11/4-20241119.yml
+- https://winxraynode.github.io/uploads/2024/11/0-20241121.yaml
+- https://winxraynode.github.io/uploads/2024/11/1-20241121.yaml
+- https://winxraynode.github.io/uploads/2024/11/2-20241121.yaml
+- https://winxraynode.github.io/uploads/2024/11/3-20241121.yaml
+- https://winxraynode.github.io/uploads/2024/11/4-20241121.yml
 
 ### V2ray订阅链接
 
-- https://winxraynode.github.io/uploads/2024/11/0-20241119.txt
-- https://winxraynode.github.io/uploads/2024/11/1-20241119.txt
-- https://winxraynode.github.io/uploads/2024/11/2-20241119.txt
-- https://winxraynode.github.io/uploads/2024/11/3-20241119.txt
-- https://winxraynode.github.io/uploads/2024/11/4-20241119.txt
+- https://winxraynode.github.io/uploads/2024/11/0-20241121.txt
+- https://winxraynode.github.io/uploads/2024/11/1-20241121.txt
+- https://winxraynode.github.io/uploads/2024/11/2-20241121.txt
+- https://winxraynode.github.io/uploads/2024/11/3-20241121.txt
+- https://winxraynode.github.io/uploads/2024/11/4-20241121.txt
 
 ## 更多clash节点订阅 ：
 
