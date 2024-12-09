@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-23584.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VUE3.0使用ElementPlus开发登录界面</title>
+        <meta name="description" content="创建项目web&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&gt;vue create web30_3 》创建过程中选项&nbsp; &nbsp; &nbsp; " />
+        <link rel="icon" href="__ADDON__/img/winxraynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                                <a class="navbar-brand" href="/">
+                    Winxray Node
+                </a>
+                
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        VUE3.0使用ElementPlus开发登录界面                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="htmledit_views"> </h1> <ul> <li>创建项目web&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&gt;vue create web30_3</li> <li>》创建过程中选项&nbsp; &nbsp; &nbsp; &nbsp;选择 Manually select features</li> <li>》创建过程中选项&nbsp; &nbsp; &nbsp; &nbsp;选择Babel，Router, Vuex</li> <li>》创建过程中选项&nbsp; &nbsp; &nbsp; &nbsp;选择版本3.0</li> <li>》创建过程中选项&nbsp; &nbsp; &nbsp; &nbsp;选择In dedicated config files</li> <li>》创建过程中选项&nbsp; &nbsp; &nbsp; &nbsp;如果保存选择，则对 Save this as a preset for future project 选择yes</li> <li>cd web30_3</li> <li>npm run serve</li> <li>安装插件&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;npm i element-plus --save&nbsp; &nbsp;注--save作用是项目拷贝时已经有包保存</li> <li>修改src下main.js文件，见编程说明部分2.1</li> </ul> </h1> <h2>2.1 main.js 修改说明</h2> <p>增加两行内容</p> <p>import ElementPlus from 'element-plus'</p> <p>import 'element-plus/lib/theme-chalk/index.css'</p> <p>再用use引入。这点与vue2.0 编程一致。</p> <pre><code class="language-javascript">import {createApp} from 'vue' import App from './App.vue' import router from './router' import store from './store' import ElementPlus from 'element-plus' import 'element-plus/lib/theme-chalk/index.css'  createApp(App).use(store).use(router).use(ElementPlus).mount(rootContainer:'#app')</code></pre> <h2>&nbsp;2.2 设计login页面</h2> <p>设计表单，形成为独立Login页面，可以单独建立目录来存放，如后台 /back，则该文件为src/views/back/Login.vue</p> <p>全部代码为：</p> <pre><code class="language-html">&lt;template&gt;     &lt;el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm"&gt;         &lt;el-form-item label="密码" prop="pass"&gt;             &lt;el-input type="password" v-model="ruleForm.pass" autocomplete="off"&gt;&lt;/el-input&gt;         &lt;/el-form-item&gt;         &lt;el-form-item label="确认密码" prop="checkPass"&gt;             &lt;el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"&gt;&lt;/el-input&gt;         &lt;/el-form-item&gt;         &lt;el-form-item label="年龄" prop="age"&gt;             &lt;el-input v-model.number="ruleForm.age"&gt;&lt;/el-input&gt;         &lt;/el-form-item&gt;         &lt;el-form-item&gt;             &lt;el-button type="primary" @click="submitForm('ruleForm')"&gt;提交&lt;/el-button&gt;             &lt;el-button @click="resetForm('ruleForm')"&gt;重置&lt;/el-button&gt;         &lt;/el-form-item&gt;     &lt;/el-form&gt; &lt;/template&gt;  &lt;script&gt;     export default {         data() {             var checkAge = (rule, value, callback) =&gt; {                 if (!value) {                     return callback(new Error('年龄不能为空'));                 }                 setTimeout(() =&gt; {                     if (!Number.isInteger(value)) {                         callback(new Error('请输入数字值'));                     } else {                         if (value &lt; 18) {                             callback(new Error('必须年满18岁'));                         } else {                             callback();                         }                     }                 }, 1000);             };             var validatePass = (rule, value, callback) =&gt; {                 if (value === '') {                     callback(new Error('请输入密码'));                 } else {                     if (this.ruleForm.checkPass !== '') {                         this.$refs.ruleForm.validateField('checkPass');                     }                     callback();                 }             };             var validatePass2 = (rule, value, callback) =&gt; {                 if (value === '') {                     callback(new Error('请再次输入密码'));                 } else if (value !== this.ruleForm.pass) {                     callback(new Error('两次输入密码不一致!'));                 } else {                     callback();                 }             };             return {                 ruleForm: {                     pass: '',                     checkPass: '',                     age: ''                 },                 rules: {                     pass: [                         { validator: validatePass, trigger: 'blur' }                     ],                     checkPass: [                         { validator: validatePass2, trigger: 'blur' }                     ],                     age: [                         { validator: checkAge, trigger: 'blur' }                     ]                 }             };         },         methods: {             submitForm(formName) {                 alert(1)                 this.$refs[formName].validate((valid) =&gt; {                     if (valid) {                         alert('submit!');                     } else {                         console.log('error submit!!');                         return false;                     }                 });             },             resetForm(formName) {                 this.$refs[formName].resetFields();             }         }     } &lt;/script&gt;  &lt;style scoped&gt; &lt;/style&gt;</code></pre> <h2>2.3 App.vue 嵌入login页面</h2> <pre><code class="language-html hljs">&lt;router-link to="/Login"&gt;登录&lt;/router-link&gt; &lt;el-button @click="this.$router.push('/about')"&gt;跳转&lt;/el-button&gt;</code></pre> <p>全文件如下：</p> <pre><code class="language-html">&lt;template&gt;   &lt;div id="nav"&gt;     &lt;router-link to="/"&gt;Home&lt;/router-link&gt; |     &lt;router-link to="/Login"&gt;登录&lt;/router-link&gt;     &lt;el-button @click="this.$router.push('/about')"&gt;跳转&lt;/el-button&gt;   &lt;/div&gt;   &lt;router-view/&gt; &lt;/template&gt;  &lt;style&gt; #app {   font-family: Avenir, Helvetica, Arial, sans-serif;   -webkit-font-smoothing: antialiased;   -moz-osx-font-smoothing: grayscale;   text-align: center;   color: #2c3e50; }  #nav {   padding: 30px; }  #nav a {   font-weight: bold;   color: #2c3e50; }  #nav a.router-link-exact-active {   color: #42b983; } &lt;/style&gt;</code></pre> <h2>&nbsp;2.4 修改路由文件</h2> <p>router/index.js 需要配置网页路由</p> <pre>, {   path: '/Login',   name: 'Login',   // route level code-splitting   // this generates a separate chunk (about.[hash].js) for this route   // which is lazy-loaded when the route is visited.   component: () =&gt; import(/* webpackChunkName: "about" */ '../views/back/Login.vue') }</pre> <p>形成为如下文件</p> <pre><code class="language-javascript">import { createRouter, createWebHashHistory } from 'vue-router' import Home from '../views/Home.vue'  const routes = [   {     path: '/',     name: 'Home',     component: Home   },   {     path: '/about',     name: 'About',     // route level code-splitting     // this generates a separate chunk (about.[hash].js) for this route     // which is lazy-loaded when the route is visited.     component: () =&gt; import(/* webpackChunkName: "about" */ '../views/About.vue')   },   {     path: '/Login',     name: 'Login',     component: ()=&gt;import('../views/back/Login')   } ]  const router = createRouter({   history: createWebHashHistory(),   routes })  export default router</code></pre> </h1> <p>D:\workspace_vue\web30_3&gt;npm run serve</p> <p>&gt; web30_3@0.1.0 serve D:\workspace_vue\web30_3<br /> &gt; vue-cli-service serve</p> <p>&nbsp;INFO &nbsp;Starting development server...<br /> 98% after emitting CopyPlugin</p> <p>&nbsp;DONE &nbsp;Compiled successfully in 7941ms</p> <p>&nbsp;&nbsp; App running at:<br /> &nbsp; - Local: &nbsp; http://localhost:8080/<br /> &nbsp; - Network: http://192.168.137.168:8080/</p> <p>&nbsp; Note that the development build is not optimized.<br /> &nbsp; To create a production build, run npm run build.<br /> 现在可以输入网址，http://192.168.137.168:8080/，在浏览器可以看到首页Home，再点击登录，可以进入登录页面。后面就是后台的对接工作了。</p> <p>http://192.168.137.168:8080/</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/ef66e5d95bb6140497172268e6b7554b.jpg"></p> <p>&nbsp;点击登录得到：</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/44baac3166bba731bb8dedb9ccfc33f4.jpg"></p> </h1> <p>网址为<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://element-plus.gitee.io/#/zh-CN"  rel="nofollow">https://element-plus.gitee.io/#/zh-CN</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-23128.htm">一劳永逸，解决.NET发布云服务器的时区问题_在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-23587.htm">猫咪领养协议（猫咪领养协议有什么用）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-5-free-subscribe-node.htm" title="「9月5日」最高速度22M/S，2024年WinXray每天更新免费节点订阅链接">「9月5日」最高速度22M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-19-winxray-windows.htm" title="「8月19日」最高速度20.8M/S，2024年WinXray每天更新免费节点订阅链接">「8月19日」最高速度20.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-winxray-github.htm" title="「10月13日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接">「10月13日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-winxray-node-github.htm" title="「12月1日」最高速度18.9M/S，2024年WinXray每天更新免费节点订阅链接">「12月1日」最高速度18.9M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-7-free-node-subscribe-links.htm" title="「8月7日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接">「8月7日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-node-subscribe-links.htm" title="「8月25日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接">「8月25日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-node-subscribe.htm" title="「10月1日」最高速度21M/S，2024年WinXray每天更新免费节点订阅链接">「10月1日」最高速度21M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-9-winxray-node-github.htm" title="「8月9日」最高速度20.6M/S，2024年WinXray每天更新免费节点订阅链接">「8月9日」最高速度20.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-node-share-links.htm" title="「9月25日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接">「9月25日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19466.htm" title="饲料搅拌机500型多少钱一台（饲料搅拌机500型多少钱一台啊）">饲料搅拌机500型多少钱一台（饲料搅拌机500型多少钱一台啊）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
