@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-25446.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spring中@Scheduled功能的使用方法详解_java</title>
+        <meta name="description" content="目录  前言 一、Spring @Scheduled Annotation  1.2 如何启用@Scheduled 注释 1.3 使用@Scheduled 注释  二、固定的延时和频率使用@Sched" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                                <a class="navbar-brand" href="/">
+                    Winxray Node
+                </a>
+                
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        Spring中@Scheduled功能的使用方法详解_java                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">一、Spring @Scheduled Annotation</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">1.2 如何启用@Scheduled 注释</a></li> <li><a href="#_lab2_1_1" rel="nofollow">1.3 使用@Scheduled 注释</a></li> </ul> <li><a href="#_label2" rel="nofollow">二、固定的延时和频率使用@Scheduled</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label3" rel="nofollow">三、配合cron表达式使用@Scheduled</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label4" rel="nofollow">四、使用properties文件配置Cron</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label5" rel="nofollow">五、使用context配置Cron</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label6" rel="nofollow">总结</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>Spring 为任务调度和基于使用@Scheduled 注释的 cron 表达式的异步方法执行提供了极好的支持。可以将@Scheduled 注释与触发器元数据一起添加到方法中。在这篇文章中，我将以4种不同的方式展示@Scheduled 功能的使用方法。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>一、Spring @Scheduled Annotation</h2> <p>@ scheduled注释用于任务调度。触发器信息需要与这个注释一起提供。</p> <p>您可以使用属性 fixedDelay/fixedRate/cron 来提供触发信息。</p> <ul> <li>fixedRate 使 Spring 定期运行任务，即使最后一次调用仍在运行</li> <li>fixedDelay 特别控制最后一次执行结束时的下一次执行时间。</li> <li>Cron 是一个源自 Unix cron 实用工具的特性，并且根据您的需求有各种选项。</li> </ul> <p>示例用法如下:</p> <div class="ay1code"> <pre class="brush:java;">@Scheduled Usages  @Scheduled(fixedDelay =30000)  public void demoServiceMethod () {... }     @Scheduled(fixedRate=30000)  public void demoServiceMethod () {... }     @Scheduled(cron="0 0 * * * *")  public void demoServiceMethod () {... }</pre> </div> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>1.2 如何启用@Scheduled 注释</h3> <p>要在 spring 应用程序中使用@Scheduled，必须首先在 applicationConfig.xml 文件中定义 xml 名称空间和模式位置定义。还添加任务: 注释驱动，以支持基于注释的任务调度。</p> <div class="ay1code"> <pre class="brush:xml;">applicationConfig.xml  xmlns:task="http://www.springframework.org/schema/task"  http://www.springframework.org/schema/task/  http://www.springframework.org/schema/task/spring-task-3.0.xsd     &lt;task:annotation-driven&gt;</pre> </div> <p>上面的添加是必要的，因为我们将使用基于注释的配置。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>1.3 使用@Scheduled 注释</h3> <p>下一步是在类中创建一个类和一个方法，如下所示:</p> <div class="ay1code"> <pre class="brush:java;">DemoService.java  public class DemoService  {    @Scheduled(cron="*/5 * * * * ?")    public void demoServiceMethod()    {      System.out.println("Method executed at every 5 seconds. Current time is :: "+ new Date());    }  }</pre> </div> <p>在上面的例子中</p> <ul> <li>使用@Scheduled 注释反过来会使 Spring 容器理解这个注释下面的方法将作为作业运行。</li> <li>记住，带@Scheduled 注释的方法不应该有传递给它们的参数。</li> <li>它们也不应该返回任何值</li> <li>如果希望在@Scheduled 方法中使用外部对象，应该使用自动连接将它们注入到 DemoService 类中，而不是将它们作为参数传递给@Scheduled 方法。</li> </ul> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>二、固定的延时和频率使用@Scheduled</h2> <p>在这个方法中，fixedDelay 属性与@Scheduled 注释一起使用。</p> <p>举例：</p> <div class="ay1code"> <pre class="brush:xhtml;">DemoServiceBasicUsageFixedDelay.java  package com.howtodoinjava.service;     import java.util.Date;  import org.springframework.scheduling.annotation.Scheduled;     public class DemoServiceBasicUsageFixedDelay  {   &amp;nbsp;@Scheduled(fixedDelay = 5000)   &amp;nbsp;//@Scheduled(fixedRate = 5000)  //Or use this   &amp;nbsp;public void demoServiceMethod()    {   &amp;nbsp; &amp;nbsp;System.out.println("Method executed at every 5 seconds. Current time is :: "+ new Date());    }  }  复制代码</pre> </div> <p>应用程序配置如下:</p> <div class="ay1code"> <pre class="brush:xml;">applicationContext.xml  &lt; ?xml  version="1.0" encoding="UTF-8"?&gt;  &lt;beans xmlns="http://www.springframework.org/schema/beans"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:task="http://www.springframework.org/schema/task"   xmlns:util="http://www.springframework.org/schema/util"   xmlns:context="http://www.springframework.org/schema/context"   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd      http://www.springframework.org/schema/context/ http://www.springframework.org/schema/context/spring-context.xsd      http://www.springframework.org/schema/util/ http://www.springframework.org/schema/util/spring-util.xsd          http://www.springframework.org/schema/task/ http://www.springframework.org/schema/task/spring-task-3.0.xsd"&gt;      &lt;task:annotation-driven /&gt;      &lt;bean id="demoServiceBasicUsageFixedDelay" class="com.howtodoinjava.service.DemoServiceBasicUsageFixedDelay"&gt;&lt;/bean&gt;  &lt;/beans&gt;</pre> </div> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>三、配合cron表达式使用@Scheduled</h2> <p>在此方法中，cron 属性与@Scheduled 注释一起使用。</p> <p>举例：</p> <div class="ay1code"> <pre class="brush:java;">DemoServiceBasicUsageCron.java  package com.howtodoinjava.service;  import java.util.Date;  import org.springframework.scheduling.annotation.Scheduled;  public class DemoServiceBasicUsageCron  {    @Scheduled(cron="*/5 * * * * ?")    public void demoServiceMethod()    {      System.out.println("Method executed at every 5 seconds. Current time is :: "+ new Date());    }  }</pre> </div> <p>应用程序配置如下:</p> <div class="ay1code"> <pre class="brush:xml;">applicationContext.xml  &lt; ?xml  version="1.0" encoding="UTF-8"?&gt;  &lt;beans xmlns="http://www.springframework.org/schema/beans"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:task="http://www.springframework.org/schema/task"   xmlns:util="http://www.springframework.org/schema/util"   xmlns:context="http://www.springframework.org/schema/context"   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd      http://www.springframework.org/schema/context/ http://www.springframework.org/schema/context/spring-context.xsd      http://www.springframework.org/schema/util/ http://www.springframework.org/schema/util/spring-util.xsd          http://www.springframework.org/schema/task/ http://www.springframework.org/schema/task/spring-task-3.0.xsd"&gt;      &lt;task:annotation-driven /&gt;      &lt;bean id="demoServiceBasicUsageCron" class="com.howtodoinjava.service.DemoServiceBasicUsageCron"&gt;&lt;/bean&gt;  &lt;/beans&gt;</pre> </div> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>四、使用properties文件配置Cron</h2> <p>在这个方法中，cron 属性与@Scheduled 注释一起使用。此属性的值必须是 cron 表达式，如前面的方法所示，但是，此 cron 表达式将在属性文件中定义，相关属性的键将用于@Scheduled 注释。</p> <p>这将使 cron 表达式与源代码分离，从而使更改变得容易。</p> <div class="ay1code"> <pre class="brush:java;">DemoServicePropertiesExample.java  package com.howtodoinjava.service;  import java.util.Date;  import org.springframework.scheduling.annotation.Scheduled;  public class DemoServicePropertiesExample {    @Scheduled(cron = "${cron.expression}")    public void demoServiceMethod()    {      System.out.println("Method executed at every 5 seconds. Current time is :: "+ new Date());    }  }</pre> </div> <p>应用程序配置如下:</p> <div class="ay1code"> <pre class="brush:xml;">applicationContext.xml  &lt;?xml  version="1.0" encoding="UTF-8"?&gt;  &lt;beans xmlns="http://www.springframework.org/schema/beans"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:task="http://www.springframework.org/schema/task"   xmlns:util="http://www.springframework.org/schema/util"   xmlns:context="http://www.springframework.org/schema/context"   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd      http://www.springframework.org/schema/context/ http://www.springframework.org/schema/context/spring-context.xsd      http://www.springframework.org/schema/util/ http://www.springframework.org/schema/util/spring-util.xsd          http://www.springframework.org/schema/task/ http://www.springframework.org/schema/task/spring-task-3.0.xsd"&gt;      &lt;task:annotation-driven /&gt;      &lt;util:properties id="applicationProps" location="application.properties" /&gt;    &lt;context:property-placeholder properties-ref="applicationProps" /&gt;      &lt;bean id="demoServicePropertiesExample" class="com.howtodoinjava.service.DemoServicePropertiesExample"&gt;&lt;/bean&gt;  &lt;/beans&gt;</pre> </div> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>五、使用context配置Cron</h2> <p>该方法在属性文件中配置 cron 表达式，在配置文件中使用 cron 表达式的属性键配置作业调度。主要的变化是您不需要在任何方法上使用@Scheduled 注释。方法配置也是在应用程序配置文件中完成的。</p> <p>举例：</p> <div class="ay1code"> <pre class="brush:java;">DemoServiceXmlConfig.java  package com.howtodoinjava.service;  import java.util.Date;  public class DemoServiceXmlConfig  {    public void demoServiceMethod()    {      System.out.println("Method executed at every 5 seconds. Current time is :: "+ new Date());    }  }</pre> </div> <p>应用程序配置如下：</p> <div class="ay1code"> <pre class="brush:xml;">applicationContext.xml  &lt;?xml  version="1.0" encoding="UTF-8"?&gt;  &lt;beans xmlns="http://www.springframework.org/schema/beans"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:task="http://www.springframework.org/schema/task"   xmlns:util="http://www.springframework.org/schema/util"   xmlns:context="http://www.springframework.org/schema/context"   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd      http://www.springframework.org/schema/context/ http://www.springframework.org/schema/context/spring-context.xsd      http://www.springframework.org/schema/util/ http://www.springframework.org/schema/util/spring-util.xsd          http://www.springframework.org/schema/task/ http://www.springframework.org/schema/task/spring-task-3.0.xsd"&gt;      &lt;task:annotation-driven /&gt;      &lt;util:properties id="applicationProps" location="application.properties" /&gt;    &lt;context:property-placeholder properties-ref="applicationProps" /&gt;    &lt;bean id="demoServiceXmlConfig" class="com.howtodoinjava.service.DemoServiceXmlConfig" /&gt;    &lt;task:scheduled-tasks&gt;        &lt;task:scheduled ref="demoServiceXmlConfig" method="demoServiceMethod" cron="#{applicationProps['cron.expression']}"&gt;&lt;/task:scheduled&gt;    &lt;/task:scheduled-tasks&gt;  &lt;/beans&gt;</pre> </div> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>总结</h2> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25445.htm">feign接口调用使用header</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23128.htm" title="一劳永逸，解决.NET发布云服务器的时区问题_在线工具">一劳永逸，解决.NET发布云服务器的时区问题_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-24-winxray-github.htm" title="「7月24日」最高速度21.1M/S，2024年WinXray每天更新免费节点订阅链接">「7月24日」最高速度21.1M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-high-speed-nodes.htm" title="「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23584.htm" title="VUE3.0使用ElementPlus开发登录界面">VUE3.0使用ElementPlus开发登录界面</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-winxray-node-share.htm" title="「8月17日」最高速度22.8M/S，2024年WinXray每天更新免费节点订阅链接">「8月17日」最高速度22.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-19-winxray-windows.htm" title="「8月19日」最高速度20.8M/S，2024年WinXray每天更新免费节点订阅链接">「8月19日」最高速度20.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-latest-winxray-node.htm" title="「11月7日」最高速度22.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月7日」最高速度22.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-winxray-github.htm" title="「8月12日」最高速度22M/S，2024年WinXray每天更新免费节点订阅链接">「8月12日」最高速度22M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-winxray-node.htm" title="「11月6日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接">「11月6日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-node-share-links.htm" title="「11月8日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接">「11月8日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
