@@ -2,14 +2,14 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://winxraynode.github.io/news/article-25445.htm" />
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-25913.htm" />
     <meta charset="utf-8">
     <!-- Always force latest IE rendering engine -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>feign接口调用使用header</title>
-        <meta name="description" content="场景： 在做运营平台调用AIID项目接口，需要将header里面的语言传递给AIID项目。但是AIID里面取不到header里面的数据 解决： 1、修改hytrix配置，配置hytrix的&nbsp;" />
+    <title>Azure DevOps通过流水线完成Docker镜像的部署</title>
+        <meta name="description" content="上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去， 完成镜像部署的闭环。 首先我们需要先准备一" />
         <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
                     <h1 class="heading-primary mb-3 title">
-                        feign接口调用使用header                    </h1>
+                        Azure DevOps通过流水线完成Docker镜像的部署                    </h1>
                     <p class="mb-5">
                         <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
                     </p>
@@ -110,10 +110,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <p>场景：</p> <p>在做运营平台调用AIID项目接口，需要将header里面的语言传递给AIID项目。但是AIID里面取不到header里面的数据</p> <p>解决：</p> <p><span style="color:#f33b45;"><em><strong>1、修改hytrix配置，配置hytrix的&nbsp;strategy为&nbsp;SEMAPHORE。</strong></em></span></p> <p>Hystrix 提供两种执行隔离策略( ExecutionIsolationStrategy ) ：<code>SEMAPHORE</code>&nbsp;、<code>THREAD</code></p> <ul> <li><code>SEMAPHORE</code>&nbsp;：信号量，命令在调用线程执行。</li> <li><code>THREAD</code>&nbsp;：线程池，命令在线程池执行</li> </ul> <p>如果不修改配置，默认配置的为THREAD，因为不在同一个线程中，无法获得请求的上下文对象，无法执行第二步操作</p> <pre><code class="language-java">feign:   httpclient:     enabled: false   okhttp:     enabled: true   hystrix:     enabled: true hystrix:   command:     default:       execution:         timeout:           enabled: true         isolation:           strategy: SEMAPHORE           thread:             timeoutInMilliseconds: 30000</code></pre> <p><span style="color:#f33b45;"><em><strong>2、增加拦截器</strong></em></span></p> <p>feign提供的&nbsp;RequestInterceptor 接口会默认拦截feign发出去所有请求，所以在这里拦截运营平台的服务operation发送给AIID服务的请求，然后再请求头中添加language</p> <p>如果再第一步没有修改&nbsp;hystrix 的 strategy，则这一步中&nbsp;RequestContextHolder.getRequestAttributes()的结果无法获取到，结果为null</p> <p>拦截器写在operation项目中</p> <pre><code class="language-java">@Slf4j @Component public class FeignTokenInterceptor implements RequestInterceptor {       @Override     public void apply(RequestTemplate template) {         HttpServletRequest request = getServletRequest();         if (null == request){             return;         }         template.header("language", getHeaders(request));     }       private HttpServletRequest getServletRequest() {         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();         return ((ServletRequestAttributes) requestAttributes).getRequest();     }       private String getHeaders(HttpServletRequest request){         String lang = request.getHeader("lang");         if("cn".equals(lang)){             lang="zh";         }         log.info("lang:{}",lang);         return lang;     } }</code></pre> <pre>这样 在运营平台operation项目里面添加了拦截器并且更改Hystrix策略，这样B项目里面就可以直接取到header里面的参数了。</pre> </div> 			                <div class="clearfix"></div>
+                                      				  				  				<p>上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去，</p> <p>完成镜像部署的闭环。</p> <p>首先我们需要先准备一下部署的环境，我们先找一台服务器在上面安装一下docker的容器引擎，我的用系统版本是centos的，这里贴一下安装命令。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">sudo yum remove docker \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">client \                   docker</span>-client-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">common \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-latest-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">engine  sudo yum install</span>-y yum-<span style="color: rgba(0, 0, 0, 1)">utils  sudo yum</span>-config-<span style="color: rgba(0, 0, 0, 1)">manager \</span>--add-<span style="color: rgba(0, 0, 0, 1)">repo \     https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">download.docker.com/linux/centos/docker-ce.repo</span><span style="color: rgba(0, 0, 0, 1)"> sudo yum install docker</span>-ce docker-ce-cli containerd.io</pre> </div> <p>执行完命令之后，执行一下systemctl start docker ,然后通过systemctl status docker 查看一下守护进程的状态，正常的话如下图所示：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/de4f2dcedb9bc77244a630784e4be017.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>环境准备好之后，我们接下来去改造我们之前创建好的流水线，我们在我们已经完成了镜像推送到仓库的流水线上添加第三个任务，这个任务的目的是通过SSH登录到</p> <p>我们的公网服务器上去，然后在我们的服务器上登录到我们的镜像仓库，从仓库中获取到我们想要的镜像，最后进行镜像的部署。</p> <p>首先，添加ssh任务</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2f1abea6ecab6947f4a064600395c3ae.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;选择我们装好了docker环境的服务器，选择编辑在线脚本，脚本的主要内容是：登录我们之前做好的镜像仓库，从仓库中获取我们的镜像，执行docker run部署</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a70484635f510a7c3cbd5f8ff36f7d6c.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;脚本内容如下：</p> <div class="cnblogs_code"> <pre>docker login ccr.ccs.tencentyun.com --username=<span style="color: rgba(128, 0, 128, 1)">100008582177</span> --password=******<span style="color: rgba(0, 0, 0, 1)"> //这里我们使用</span>$(Build.BuildId)环境变量，让流水线自动拉取上一个任务编译好的镜像TAG</pre> <pre><span style="color: rgba(0, 0, 0, 1)">docker pull docker pull ccr.ccs.tencentyun.com</span>/my-registry/my-image-repository:test-<span style="color: rgba(0, 0, 0, 1)">$(Build.BuildId)<br/>docker run</span>-d --name test -p<span style="color: rgba(128, 0, 128, 1)">8080</span>:<span style="color: rgba(128, 0, 128, 1)">8081</span> ccr.ccs.tencentyun.com/my-registry/my-image-repository:test-$(Build.BuildId)</pre> </div> <p>编写好之后，我们运行一下流水线看看效果</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ded43ec91b070c3719358f183c4cb0ee.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;这里有个小插曲，就是我第一次运行的时候所有的命令都执行成功了，但是到最后流水线依然会报出异常，结果查证之后发现原来是最后docker向控制台输出了stderr，我去搜索了一番</p> <p>stackoverfolw上是这么答复的：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f0a997b5831cf75682c3d46e2dcdda9f.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;所以我们需要按照提示去关闭ssh这个任务中的Fail on stderr选项。</p> <p>被这个玩意坑了我20分钟，太惨了。</p> <p>到这里，我们就完成了通过azure实现从镜像编译到部署的全套流程，接下来我们将会开始研究azure的更多功能。</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-24977.htm">正规的宠物领养网站推荐一下（比较正规的宠物领养平台）</a></p>
-                                        <p>下一个：<a href="/news/article-25446.htm">Spring中@Scheduled功能的使用方法详解_java</a></p>
+                                        <p>上一个：<a href="/news/article-25446.htm">Spring中@Scheduled功能的使用方法详解_java</a></p>
+                                        <p>下一个：<a href="/news/article-25914.htm">宠物领养条约最新版（宠物领养协议具有法律效应吗）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -123,16 +123,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-25913.htm" title="Azure DevOps通过流水线完成Docker镜像的部署">Azure DevOps通过流水线完成Docker镜像的部署</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe.htm" title="「12月5日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接">「12月5日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-winxray-node-share.htm" title="「11月12日」最高速度21.1M/S，2024年WinXray每天更新免费节点订阅链接">「11月12日」最高速度21.1M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-10-winxray-node-github.htm" title="「8月10日」最高速度18.5M/S，2024年WinXray每天更新免费节点订阅链接">「8月10日」最高速度18.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-winxray-windows.htm" title="「8月15日」最高速度19.5M/S，2024年WinXray每天更新免费节点订阅链接">「8月15日」最高速度19.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-node-subscribe.htm" title="「10月1日」最高速度21M/S，2024年WinXray每天更新免费节点订阅链接">「10月1日」最高速度21M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-winxray-node.htm" title="「10月21日」最高速度20M/S，2024年WinXray每天更新免费节点订阅链接">「10月21日」最高速度20M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-winxray-node-share.htm" title="「10月6日」最高速度20.6M/S，2024年WinXray每天更新免费节点订阅链接">「10月6日」最高速度20.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-node-subscribe-links.htm" title="「11月13日」最高速度19.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月13日」最高速度19.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19467.htm" title="宠物粮品牌排行榜前十 宠物粮品牌排行榜前十名">宠物粮品牌排行榜前十 宠物粮品牌排行榜前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-winxray-github.htm" title="「12月10日」最高速度20.4M/S，2024年WinXray每天更新免费节点订阅链接">「12月10日」最高速度20.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-winxray-node-share.htm" title="「9月24日」最高速度19.1M/S，2024年WinXray每天更新免费节点订阅链接">「9月24日」最高速度19.1M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-node-share-links.htm" title="「9月25日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接">「9月25日」最高速度18M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-free-high-speed-nodes.htm" title="「9月23日」最高速度22.7M/S，2024年WinXray每天更新免费节点订阅链接">「9月23日」最高速度22.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-17-free-subscribe-node.htm" title="「9月17日」最高速度19.2M/S，2024年WinXray每天更新免费节点订阅链接">「9月17日」最高速度19.2M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-29-free-high-speed-nodes.htm" title="「7月29日」最高速度21.8M/S，2024年WinXray每天更新免费节点订阅链接">「7月29日」最高速度21.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-11-winxray-github.htm" title="「8月11日」最高速度22.8M/S，2024年WinXray每天更新免费节点订阅链接">「8月11日」最高速度22.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-node-subscribe-links.htm" title="「10月12日」最高速度21.6M/S，2024年WinXray每天更新免费节点订阅链接">「10月12日」最高速度21.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-node-share.htm" title="「10月22日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接">「10月22日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25446.htm" title="Spring中@Scheduled功能的使用方法详解_java">Spring中@Scheduled功能的使用方法详解_java</a></li>
                     </ul>
     </div>
 </div>
