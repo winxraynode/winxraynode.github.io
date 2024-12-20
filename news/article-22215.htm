@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>nohup: redirecting stderr to stdout</title>
         <meta name="description" content="执行kafka启动脚本时，出现如下提示。 [root@node03 bin]# sh start.sh&nbsp; nohup: redirecting stderr to stdout 脚本内容： " />
-        <link rel="icon" href="__ADDON__/img/winxraynode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
     <!-- FONT-AWESOME -->
@@ -110,7 +110,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> </h1> <p><strong>执行kafka启动脚本时，出现如下提示。</strong></p> <pre><code class="language-bash">[root@node03 bin]# sh start.sh&nbsp; nohup: redirecting stderr to stdout</code></pre> <p><strong>脚本内容：</strong></p> <pre><code class="language-bash">[root@node03 bin]# cat start.sh  nohup sh zookeeper-server-start.sh ../config/zookeeper.properties &gt; ../logs/zookeeper.log &amp; sleep 5 nohup sh kafka-server-start.sh ../config/server.properties &gt; ../logs/kafka.log &amp; [root@node03 bin]#</code></pre> <p>叫zookeeper和kafka启动过程记录到各自对应的日志文件中，这个会丢失日志记录，有些报错信息看不到。</p> <hr/> </h1> <pre><code class="language-bash">[root@node03 bin]# cat start.sh  nohup sh zookeeper-server-start.sh ../config/zookeeper.properties &gt; ../logs/zookeeper.log 2&gt;&amp;1 &amp; sleep 5 nohup sh kafka-server-start.sh ../config/server.properties &gt; ../logs/kafka.log 2&gt;&amp;1 &amp; [root@node03 bin]#</code></pre> <hr/> </h1> <ul> <li>2&gt;&nbsp; &nbsp; &nbsp; &nbsp; 表示把标准错误(stderr)重定向，标准输出(stdout)为1</li> <li>尖括号后面可以跟文件名，或者是&amp;1, &amp;2</li> <li>2&gt; &amp;1&nbsp; &nbsp; &nbsp; &nbsp; 表示重定向到标注输出</li> <li>1&gt; &amp;2&nbsp; &nbsp; &nbsp; &nbsp; 表示重定向到标准错误</li> <li>2&gt; stderr.log</li> <li>1&gt; stdout.log</li> </ul> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p><strong>执行kafka启动脚本时，出现如下提示。</strong></p> <pre><code class="language-bash">[root@node03 bin]# sh start.sh&nbsp; nohup: redirecting stderr to stdout</code></pre> <p><strong>脚本内容：</strong></p> <pre><code class="language-bash">[root@node03 bin]# cat start.sh  nohup sh zookeeper-server-start.sh ../config/zookeeper.properties &gt; ../logs/zookeeper.log &amp; sleep 5 nohup sh kafka-server-start.sh ../config/server.properties &gt; ../logs/kafka.log &amp; [root@node03 bin]#</code></pre> <p>叫zookeeper和kafka启动过程记录到各自对应的日志文件中，这个会丢失日志记录，有些报错信息看不到。</p> <hr/> </h1> <pre><code class="language-bash">[root@node03 bin]# cat start.sh  nohup sh zookeeper-server-start.sh ../config/zookeeper.properties &gt; ../logs/zookeeper.log 2&gt;&amp;1 &amp; sleep 5 nohup sh kafka-server-start.sh ../config/server.properties &gt; ../logs/kafka.log 2&gt;&amp;1 &amp; [root@node03 bin]#</code></pre> <hr/> </h1> <ul> <li>2&gt;&nbsp; &nbsp; &nbsp; &nbsp; 表示把标准错误(stderr)重定向，标准输出(stdout)为1</li> <li>尖括号后面可以跟文件名，或者是&amp;1, &amp;2</li> <li>2&gt; &amp;1&nbsp; &nbsp; &nbsp; &nbsp; 表示重定向到标注输出</li> <li>1&gt; &amp;2&nbsp; &nbsp; &nbsp; &nbsp; 表示重定向到标准错误</li> <li>2&gt; stderr.log</li> <li>1&gt; stdout.log</li> </ul> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-21711.htm">宠物医院收费价目表2022图片大全及价格（宠物医院价格表 收费）</a></p>
                                         <p>下一个：<a href="/news/article-22216.htm">C#语法糖系列聊聊 ref，in 修饰符底层玩法</a></p>
@@ -123,16 +124,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-5-free-subscribe-node.htm" title="「9月5日」最高速度22M/S，2024年WinXray每天更新免费节点订阅链接">「9月5日」最高速度22M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-winxray-github.htm" title="「11月21日」最高速度19.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月21日」最高速度19.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-6-free-subscribe-node.htm" title="「8月6日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接">「8月6日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-subscribe-node.htm" title="「10月16日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接">「10月16日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-winxray-node.htm" title="「11月25日」最高速度22.5M/S，2024年WinXray每天更新免费节点订阅链接">「11月25日」最高速度22.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-10-winxray-windows.htm" title="「9月10日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「9月10日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-14-today-winxray-node.htm" title="「8月14日」最高速度20.4M/S，2024年WinXray每天更新免费节点订阅链接">「8月14日」最高速度20.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-winxray-node.htm" title="「11月30日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接">「11月30日」最高速度19.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-4-latest-winxray-node.htm" title="「9月4日」最高速度18.3M/S，2024年WinXray每天更新免费节点订阅链接">「9月4日」最高速度18.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21711.htm" title="宠物医院收费价目表2022图片大全及价格（宠物医院价格表 收费）">宠物医院收费价目表2022图片大全及价格（宠物医院价格表 收费）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-latest-winxray-node.htm" title="「10月26日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接">「10月26日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-30-winxray-node-share.htm" title="「7月30日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接">「7月30日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-19-winxray-windows.htm" title="「8月19日」最高速度20.8M/S，2024年WinXray每天更新免费节点订阅链接">「8月19日」最高速度20.8M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-today-winxray-node.htm" title="「12月3日」最高速度23M/S，2024年WinXray每天更新免费节点订阅链接">「12月3日」最高速度23M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22672.htm" title="青浦二中2021高考成绩如何（青浦二中2021高考成绩如何啊）">青浦二中2021高考成绩如何（青浦二中2021高考成绩如何啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-winxray-node-github.htm" title="「8月27日」最高速度20.7M/S，2024年WinXray每天更新免费节点订阅链接">「8月27日」最高速度20.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20383.htm" title="抖音直播用什么手机效果最好2023(抖音直播用什么手机效果最好2022)">抖音直播用什么手机效果最好2023(抖音直播用什么手机效果最好2022)</a></li>
+                        <li class="py-2"><a href="/news/article-25445.htm" title="feign接口调用使用header">feign接口调用使用header</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-21-free-subscribe-node.htm" title="「7月21日」最高速度22.2M/S，2024年WinXray每天更新免费节点订阅链接">「7月21日」最高速度22.2M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-7-node-share.htm" title="「9月7日」最高速度21M/S，2024年WinXray每天更新免费节点订阅链接">「9月7日」最高速度21M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -144,7 +145,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -177,6 +178,15 @@
                 <div class="offset-md-3 col-md-6 offset-md-3">
                     <!-- START RIGHTS -->
                     <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p>WinXray Node节点订阅站 版权所有</p>
                         <p>Powered by WordPress</p>
                     </div>
