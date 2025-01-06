@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-36785.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maven安装与配置，Idea配置Maven</title>
+        <meta name="description" content="文章目录  一、安装本地Maven 二、安装 三、配置环境变量 四、配置settings文件 五、idea配置    选择你需要的maven版本下载：官网下载传送门 我使用的是3.6.1版本：mave" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                                <a class="navbar-brand" href="/">
+                    Winxray Node
+                </a>
+                
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        Maven安装与配置，Idea配置Maven                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#Maven_1" rel="nofollow">一、安装本地Maven</a></li> <li><a href="#_8" rel="nofollow">二、安装</a></li> <li><a href="#_12" rel="nofollow">三、配置环境变量</a></li> <li><a href="#settings_28" rel="nofollow">四、配置settings文件</a></li> <li><a href="#idea_92" rel="nofollow">五、idea配置</a></li> </ul> </div> </h1> <p>选择你需要的maven版本下载：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://maven.apache.org/download.cgi"  rel="nofollow">官网下载传送门</a></p> <p>我使用的是3.6.1版本：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/"  rel="nofollow">maven-3.6.1-bin.zip</a><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e198cc59d63103fd06bc63ba94817c55.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>把下载好的maven压缩包解压到一个没有中文，空格或其他特殊字符的文件夹，如：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e1d0f637036aeca82a997546ee1855bf.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>1.右键此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/7c48673f7bfaafbce0f8480f80d9628d.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 2.新建系统变量MAVEN_HOME<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/09ba7d0e5bbb6231240f413efe13e3f6.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 3.编辑系统变量Path，添加变量值%MAVEN_HOME%\bin</p> <pre><code>%MAVEN_HOME%\bin</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/18377bcaaa2ce58d18c3d7cbe3fa5778.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 4.验证安装是否成功，win+R运行cmd，输入mvn -v，如图所示则配置成功<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dbde212012e257d61c4b7f0db4c073bc.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>1.在Maven安装目录conf目录下找到settings.xml配置文件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e4397f8ded61bf3de00ec72d695c25eb.jpg" alt="Maven安装与配置，Idea配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/0fd7eda48e12b13420db053515c8a4c0.jpg" alt="Maven安装与配置，Idea配置Maven"></p> <p>2.修改本地仓库地址<br /> （1）在maven安装目录下新建本地仓库文件夹maven_repository<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dd5b25548847c2c7c0d6739be746de96.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> （2）修改默认本地仓库地址<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dd7d23cd1feaf9c7b6b3d13a28cf5907.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 3.配置私服，因为中央仓库在国外导致下载jar包很慢或者失败，所以我们改为国内的服务器，下面三个选择一个就可以了。<br /> （一般会用阿里云的镜像库，但不知道是我电脑还是网络的原因，下载jar包总会出错，换了很多阿里云镜像都不管用，最后换了腾讯云的就好了，所有这里给出了三个镜像）<br /> 【阿里云】</p> <pre><code>&lt;mirror&gt;   &lt;id&gt;aliyunmaven&lt;/id&gt;   &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;   &lt;name&gt;阿里云公共仓库&lt;/name&gt;   &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>【网易】</p> <pre><code>&lt;mirror&gt;     &lt;id&gt;nexus-163&lt;/id&gt;     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     &lt;name&gt;Nexus 163&lt;/name&gt;     &lt;url&gt;http://mirrors.163.com/maven/repository/maven-public/&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>【腾讯云】</p> <pre><code>&lt;mirror&gt;     &lt;id&gt;nexus-tencentyun&lt;/id&gt;     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     &lt;name&gt;Nexus tencentyun&lt;/name&gt;     &lt;url&gt;http://mirrors.cloud.tencent.com/nexus/repository/maven-public/&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>将镜像复制到两个mirrors标签之间<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e33a5aa36b4fc3ce477b17401a8421d9.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 4.配置jdk，也要夹在两个profiles标签之间</p> <pre><code>&lt;!-- java1.8版本 --&gt;  &lt;profile&gt;       &lt;id&gt;jdk-1.8&lt;/id&gt;       &lt;activation&gt; 	    &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;         &lt;jdk&gt;1.8&lt;/jdk&gt;       &lt;/activation&gt;        &lt;properties&gt;         &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt; 		&lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt; 		&lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;       &lt;/properties&gt; &lt;/profile&gt;</code></pre> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/2a4dc1725b618fb732464be03df0fc1f.jpg" alt="Maven安装与配置，Idea配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/60f3e75b353f1d0c2fe3d8d57672f854.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36005.htm">怎么看猫打没打针（怎么知道猫打没打疫苗）</a></p>
+                                        <p>下一个：<a href="/news/article-36786.htm">动物疫苗研究方向 动物疫苗研究方向有哪些</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="「10月29日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接">「10月29日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-subscribe-node.htm" title="「11月18日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「11月18日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-subscribe-node.htm" title="「12月23日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「12月23日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19466.htm" title="饲料搅拌机500型多少钱一台（饲料搅拌机500型多少钱一台啊）">饲料搅拌机500型多少钱一台（饲料搅拌机500型多少钱一台啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-winxray-node-share.htm" title="「10月31日」最高速度18.6M/S，2024年WinXray每天更新免费节点订阅链接">「10月31日」最高速度18.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19919.htm" title="动物疫苗接种间隔多久（动物疫苗接种间隔多久打一次）">动物疫苗接种间隔多久（动物疫苗接种间隔多久打一次）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-winxray-node-share.htm" title="「11月14日」最高速度18.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月14日」最高速度18.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share.htm" title="「10月10日」最高速度19.4M/S，2024年WinXray每天更新免费节点订阅链接">「10月10日」最高速度19.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-node-share.htm" title="「10月18日」最高速度19.3M/S，2024年WinXray每天更新免费节点订阅链接">「10月18日」最高速度19.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-node-share.htm" title="「10月22日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接">「10月22日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
