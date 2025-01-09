@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-37719.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>linux交叉编译openssl,【经验分享】linux交叉编译 &#8211; openssl动态库</title>
+        <meta name="description" content="一、准备工作 1、到openssl官网下载最新版本openssl(如openssl-1.1.1d.tar.gz)，上传到linux编译机上(如上传到目录/home/test下)，并使用tar -xvf" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                                <a class="navbar-brand" href="/">
+                    Winxray Node
+                </a>
+                
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        linux交叉编译openssl,【经验分享】linux交叉编译 &#8211; openssl动态库                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>一、准备工作</p> <p>1、到openssl官网下载最新版本openssl(如openssl-1.1.1d.tar.gz)，上传到linux编译机上(如上传到目录/home/test下)，并使用tar -xvf openssl-1.1.1d.tar.gz解压：</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/2560eabb2b11f4f1951c4b6af91843e4.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>2、将要用到的交叉编译工具链解压后，找到交叉编译器所在路径(如果直接使用系统的gcc，可跳过这一步，但要保证gcc已安装)：</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/166a9144d0071542d12d6f568504b0ef.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>注意：gcc/g++/ar/ranlib/nm等文件的名字根据编译链的不同，文件名开头会有所不同，但文件名结尾是不变的，如arm架构比较常见的编译器是arm-linux-gcc</p> <p>二、配置</p> <p>进入openssl源码目录，运行如下配置命令</p> <p>./config shared --prefix=/home/test/openssl --openssldir=/home/test/openssl/ssl</p> <p>或./config&nbsp; no-asm shared --prefix=/home/test/openssl --openssldir=/home/test/openssl/ssl</p> <p>其中prefix 是安装目录，openssldir 是配置文件目录，shared 作用是生成动态链接库(即.so库)</p> <p>注意：no-asm表示不使用汇编代码，如果编译有问题再加，没有问题就不加</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/f33d8dd05fa19734f6967d3ad8270d20.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>注意：&nbsp;如果遇到64位的编译链，需要添加sysroot参数，用如下命令配置(+参考图片)：</p> <p>./config no-asm shared --prefix=/home/test/openssl --openssldir=/home/test/openssl/ssl --sysroot="{头文件所在路径}"</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/1a9e359205a41f478649d00e2cd4bb44.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>一般来说，头文件所在路径 与 XXX-gcc/g++/ar/nm等(XXX是交叉编译器名字的前缀)的所在目录不一样，在另外一个大目录下(如下图所示)</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/ff7d3d55b7e3bc5f7fdcbe74f2e56341.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>Tips:</p> <p>可以先用find ./ -name *-gcc命令找到gcc/g++/ar/ranlib/nm等文件所在目录，那另一个目录就是头文件所在路径</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/b38816f626bf9ffcda133cbdfac107ca.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>从上图看，gcc/g++/ar/ranlib/nm等文件在sysroots/x86_64-fslsdk-linux的某目录，所以头文件一般在另一个目录sysroots/ppc64e6500-fsl-linux下，且sysroots/ppc64e6500-fsl-linux下的usr/include目录下面有许多(不是一两个)头文件(也就是说--sysroot的值是usr/include所在的目录)：</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/335a7e459d27fee043a62b33c21365d3.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>三、修改Makefile</p> <p>配置完成后会在openssl源码目录下生成一个Makefile文件，打开查看内容，会看到CROSS_COMPILE的值是空的</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/1449295e9a89ab8feabee7aca79d0aba.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>这时要将CROSS_COMPILE的值修改为XXX-gcc所在绝对路径+XXX-gcc的文件名前缀(参考下图)，也就是说要先找到交叉编译工具xxx-gcc/g++/ar/nm等文件所在路径(其中“XXX-”是交叉编译工具文件名前缀)：</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/b9d24a53d4f0abd5818d0aef2cd62897.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>修改CROSS_COMPILE的值最终是为了修改arm-linux-xxx-gcc/ar/ranlib/nm等的路径，在比较老的openssl版本中，没有CROSS_COMPILE参数，需要修改如下5个变量的值 (注意下图所用的交叉编译工具不是跟前面的不一样，所以路径也不同)：</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/73788e71f893e4edb19569e787dfef9e.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>四、编译出库</p> <p>修改完Makefile后就可以进行编译了，到openssl源码目录下，运行make命令：</p> <p>openssl源码目录下，运行make命令：</p> <p>make</p> <p>如果没有报错，再运行make install</p> <p>make install</p> <p>在配置的openssl安装目录下/home/test/openssl找到lib目录，有如下两个文件：</p> <p>libcrypto.so.1.1、libssl.so.1.1和软链接libcrypto.so、libssl.so</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/c9b6d875cd470704cf1ffee68ee575a5.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> <p>五、其他说明</p> <p>1、交叉编译工具不是在任何环境上都可使用的，需要系统环境和编译工具匹配才可以，主要看CPU和指令集</p> <p>2、如果不需要交叉编译工具，而是直接使用gcc，那么，配置生成Makefile后不需要修改Makefile(即跳过第三步)，直接编译即可</p> <p>3、如果make出错后修改了Makefile，记得make clean后再make</p> <p>4、有的编译工具是32位的，如果在64位的linux机器上使用，可能会报如下错误，这时只要将Makefile中的-m64都删除，再进行编译即可</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20221117/c964fe6cfb8f48ae08174ed838ba1c6e.jpg" alt="linux交叉编译openssl,【经验分享】linux交叉编译 - openssl动态库"></p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37282.htm">动物打过疫苗被咬还有事啊图片（动物打过疫苗咬人会对人有影响吗）</a></p>
+                                        <p>下一个：<a href="/news/article-37721.htm">动物疫苗的使用年限是多少（动物疫苗规定）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32960.htm" title="合肥宠物免费领养（合肥宠物领养中心官网）">合肥宠物免费领养（合肥宠物领养中心官网）</a></li>
+                        <li class="py-2"><a href="/news/article-22215.htm" title="nohup: redirecting stderr to stdout">nohup: redirecting stderr to stdout</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-node-share.htm" title="「10月18日」最高速度19.3M/S，2024年WinXray每天更新免费节点订阅链接">「10月18日」最高速度19.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-winxray-windows.htm" title="「12月31日」最高速度22M/S，2025年WinXray每天更新免费节点订阅链接">「12月31日」最高速度22M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-node-subscribe-links.htm" title="「11月9日」最高速度18.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月9日」最高速度18.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31418.htm" title="动物防疫相关管理制度范本（动物防疫管理条例）">动物防疫相关管理制度范本（动物防疫管理条例）</a></li>
+                        <li class="py-2"><a href="/news/article-31055.htm" title="宠物医院好评语 宠物医院好评语30字通用">宠物医院好评语 宠物医院好评语30字通用</a></li>
+                        <li class="py-2"><a href="/news/article-29906.htm" title="动物疫苗经营许可证办理条件有哪些要求呢（办理动物疫苗销售需要哪些手续）">动物疫苗经营许可证办理条件有哪些要求呢（办理动物疫苗销售需要哪些手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-today-winxray-node.htm" title="「12月12日」最高速度19M/S，2024年WinXray每天更新免费节点订阅链接">「12月12日」最高速度19M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30583.htm" title="动物疫苗多长时间内打一次最好（动物疫苗间隔时间）">动物疫苗多长时间内打一次最好（动物疫苗间隔时间）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
