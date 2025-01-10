@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-38756.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL SERVER使用表分区优化性能_MsSql</title>
+        <meta name="description" content="目录  1.简介 2.表分区  2.1分区范围 2.2分区键 2.3索引分区  3.创建表分区  3.1创建文件组 3.2指定文件组存放路径 3.3创建分区函数 3.4创建分区方案 3.5创建分区表 " />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                                <a class="navbar-brand" href="/">
+                    Winxray Node
+                </a>
+                
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        SQL SERVER使用表分区优化性能_MsSql                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.简介</a></li> <li><a href="#_label1" rel="nofollow">2.表分区</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">2.1分区范围</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.2分区键</a></li> <li><a href="#_lab2_1_2" rel="nofollow">2.3索引分区</a></li> </ul> <li><a href="#_label2" rel="nofollow">3.创建表分区</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_3" rel="nofollow">3.1创建文件组</a></li> <li><a href="#_lab2_2_4" rel="nofollow">3.2指定文件组存放路径</a></li> <li><a href="#_lab2_2_5" rel="nofollow">3.3创建分区函数</a></li> <li><a href="#_lab2_2_6" rel="nofollow">3.4创建分区方案</a></li> <li><a href="#_lab2_2_7" rel="nofollow">3.5创建分区表</a></li> <li><a href="#_lab2_2_8" rel="nofollow">3.6创建分区索引</a></li> </ul> <li><a href="#_label3" rel="nofollow">4.表分区的优缺点</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.简介</h2> <p>当一个表数据量很大时候，很自然我们就会想到将表拆分成很多小表，在执行查询时候就到各个小表去查，最后汇总数据集返回给调用者加快查询速度。比如电商平台订单表，库存表，由于长年累月读写较多，积累数据都是异常庞大的，这时候，我们可以想到表分区这个做法，降低运维和维护成本，提高读写性能。比如将前半年订单放一个历史分区表，不活跃库存放一个历史分区表。截止到SQL Server 2016，一张表或一个索引最多可以有15000个分区。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.表分区</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>2.1分区范围</h3> <p>分区范围是指在要分区的表中，根据业务选择表中的关键字段做为分区边界条件，分区后，数据所在的具体位置至关重要，这样才能在需要时只访问相应的分区。注意分区是指数据的逻辑分离，不是数据在磁盘上的物理位置，数据的位置由文件组来决定，所以一般建议一个分区对应一个文件组。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.2分区键</h3> <p>分区表中的字段可以作为分区键，比如库存表中供应商ID。对表和索引进行分区的第一步就是定义分区的关键数据。</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>2.3索引分区</h3> <p>除了对表的数据集进行分区之外，还可以对索引进行分区，使用相同的函数对表及其索引进行分区通常可以优化性能。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.创建表分区</h2> <p class="maodian"><a name="_lab2_2_3" rel="nofollow"></a></p> <h3>3.1创建文件组</h3> <p>在这里演示示例当中，我根据业务场景在TestDB数据库新增三个文件组，而三个文件组分别对应三个分区。而多个文件组好处是可以按照不同业务场景将数据放在对应文件组当中，优化性能同时好维护数据。文件组数量由硬件决定，最好是一个文件组对应一个分区，好维护。而通常文件组都处于不同磁盘上的，但是由于是演示，我只在一个磁盘中存放。</p> <div class="ay1code"> <pre class="brush:sql;">--创建四个文件组  ALTER DATABASE [TestDB] ADD FILEGROUP SupIDGroup1  ALTER DATABASE [TestDB] ADD FILEGROUP SupIDGroup2  ALTER DATABASE [TestDB] ADD FILEGROUP SupIDGroup3</pre> </div> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <h3>3.2指定文件组存放路径</h3> <p>在创建文件组之后，指定文件组存放磁盘位置，文件大小。</p> <div class="ay1code"> <pre class="brush:sql;">--创建四个ndf文件，对应到各文件组中，FILENAME文件存储路径  ALTER DATABASE [TestDB] ADD FILE(  NAME='SupIDGroupFile1',  FILENAME='D:\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\SupIDGroupFile1.ndf',  SIZE=10MB,  FILEGROWTH=10MB)  TO FILEGROUP SupIDGroup1    ALTER DATABASE [TestDB] ADD FILE(  NAME='SupIDGroupFile2',  FILENAME='D:\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\SupIDGroupFile2.ndf',  SIZE=10MB,  FILEGROWTH=10MB)  TO FILEGROUP SupIDGroup2    ALTER DATABASE [TestDB] ADD FILE(  NAME='SupIDGroupFile3',  FILENAME='D:\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\SupIDGroupFile3.ndf',  SIZE=10MB,  FILEGROWTH=10MB)  TO FILEGROUP SupIDGroup3</pre> </div> <p>注（附上删除文件组T-SQL）：</p> <div class="ay1code"> <pre class="brush:sql;">ALTER DATABASE [TestDB] REMOVE FILE SupIDGroupFile3</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/f2ef99ef955a79b76d9c5701b30c757f.jpg"></p> <p>可以通过以下T-SQL语句查看文件组存放相关信息：</p> <div class="ay1code"> <pre class="brush:sql;">SELECT file_id,type,type_desc,data_space_id,name,physical_name,state_desc,size,growth  FROM sys.database_files</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/56ff0d867327459aef73785967b166a6.jpg"></p> <p class="maodian"><a name="_lab2_2_5" rel="nofollow"></a></p> <h3>3.3创建分区函数</h3> <p>如何创建表分区边界值，我们肯定要根据业务场景来决定。比如我测试库库存表有36万左右数据，而有些供应商的库存数据远远比其他供应商大，那么我可以考虑使用供应商ID字段作为边界值分区。例如：根据T-SQL统计，18080供应商库存数据最大，那么我可以根据18080供应商上下分为三个区。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/87db56afd21e0900752fd7031e42a348.jpg"></p> <p>第一个分区范围记录：供应商ID小于等于13570的39097条库存数据。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/75c10adcc663e7c740887117d68f1457.jpg"></p> <p>第二个分区范围记录：供应商ID大于13570和小于等于18079的45962条库存数据。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/67afad35759e1aa5a6da6b897aac5016.jpg"></p> <p>第三个分区范围记录：供应商ID大于18079小于等于18080的164937条库存数据。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/94d1518518e306f4b8ded70030b3242a.jpg"></p> <p>第四个分区范围记录：供应商ID大于18080的111116条库存数据。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/87e6322a76a43d4073631ff40820904c.jpg"></p> <p>根据上述分区范围记录，我们可以将供应商ID作为边界值设置，执行以下T-SQL语句设置边界值：</p> <div class="ay1code"> <pre class="brush:sql;">--设置边界值  CREATE PARTITION FUNCTION PF_SupplierID(int)  AS RANGE LEFT FOR VALUES (13570,18079,18080)</pre> </div> <p>执行完毕后如图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/63c143e4dde7d813dfd1889fd28d9baf.jpg"></p> <p class="maodian"><a name="_lab2_2_6" rel="nofollow"></a></p> <h3>3.4创建分区方案</h3> <p>执行以下T-SQL语句创建分区方案：</p> <div class="ay1code"> <pre class="brush:sql;">--创建分区方案  CREATE PARTITION SCHEME PS_SupplierID  AS PARTITION PF_SupplierID TO ([PRIMARY], [SupIDGroup1],[SupIDGroup2],[SupIDGroup3])</pre> </div> <p>执行完毕后如图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/751fe0f4a869cc7184e1d8c0449e7728.jpg"></p> <p class="maodian"><a name="_lab2_2_7" rel="nofollow"></a></p> <h3>3.5创建分区表</h3> <p>上面那些分区步骤都是为了接下来创建分区表这一步骤而准备的。废话不多说，现在我们来看看如何创建分区表。右键需要分区的表-&gt;储存-&gt;创建分区，具体步骤如下图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/bd1ef4792d677753172f7507c896d587.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/1422c8590b250a92b076ab1dfb433f6f.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/69ee1338c287d1330b3ec8b15decb222.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/8499915eca94b878cbcc0ae9e5db2903.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/2c5b6ae471a6b8f865fe8c82ee8e3a49.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/4f69c69173e1baf9c17d2a18088fc7e0.jpg"></p> <p class="maodian"><a name="_lab2_2_8" rel="nofollow"></a></p> <h3>3.6创建分区索引</h3> <div class="ay1code"> <pre class="brush:sql;">--创建分区索引  CREATE NONCLUSTERED INDEX [NCI_SupplierID] ON dbo.Stock  (      SupplierID ASC  )  INCLUDE ( [Model],[Brand],[Encapsulation]) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  GO</pre> </div> <p>或者</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/1ba89a20843e957a7ac0204b1c50bfe0.jpg"></p> <p>执行完毕后如图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/b5c714daf6d39111a9a072c36d4fbbd1.jpg"></p> <p>创建好索引之后，我们来看看分区情况：</p> <div class="ay1code"> <pre class="brush:sql;">--查看各分区有多少行数据  SELECT * FROM (  SELECT $PARTITION.PF_SupplierID([SupplierID]) AS Patition,COUNT(*) AS CountRows FROM dbo.Stock  GROUP BY $PARTITION.PF_SupplierID([SupplierID])  )TB ORDER BY Patition</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/68ceb9c0be2c70ec9f6009111b446d1b.jpg"></p> <p>最后我们来看看加了索引之后表数据查询情况：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/b300bb553d9fd5750672065d9b50dd4c.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.表分区的优缺点</h2> <p>优点：</p> <ul> <li>改善查询性能：对分区对象的查询可以仅搜索自己关心的分区，提高检索速度。</li> <li>增强可用性：如果表的某个分区出现故障，表在其他分区的数据仍然可用。</li> <li>维护方便：如果表的某个分区出现故障，需要修复数据，只修复该分区即可。</li> <li>均衡I/O：可以把不同的分区映射到不同磁盘以平衡I/O，改善整个系统性能。</li> </ul> <p>缺点：</p> <p>分区表相关：已经存在的表没有方法可以直接转化为分区表。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38755.htm">Vue路由router详细总结</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-node-subscribe-links.htm" title="「11月9日」最高速度18.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月9日」最高速度18.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-winxray-node-share.htm" title="「12月20日」最高速度20.2M/S，2024年WinXray每天更新免费节点订阅链接">「12月20日」最高速度20.2M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-today-winxray-node.htm" title="「12月4日」最高速度18.5M/S，2024年WinXray每天更新免费节点订阅链接">「12月4日」最高速度18.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38755.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-node-subscribe-links.htm" title="「10月12日」最高速度21.6M/S，2024年WinXray每天更新免费节点订阅链接">「10月12日」最高速度21.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-18788.htm" title="被猫抓了一下过了24小时还可以***吗（被猫抓了一下过了24小时还可以***吗 猫打过疫苗）">被猫抓了一下过了24小时还可以***吗（被猫抓了一下过了24小时还可以***吗 猫打过疫苗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-high-speed-nodes.htm" title="「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-winxray-node-share.htm" title="「1月5日」最高速度18.2M/S，2025年WinXray每天更新免费节点订阅链接">「1月5日」最高速度18.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="「10月29日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接">「10月29日」最高速度20.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22672.htm" title="青浦二中2021高考成绩如何（青浦二中2021高考成绩如何啊）">青浦二中2021高考成绩如何（青浦二中2021高考成绩如何啊）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
