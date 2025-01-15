@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-40729.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服务器使用Nginx部署Springboot项目（jar包）</title>
+        <meta name="description" content="部署SpringBoot项目到后台Nginx实现多项目反向代理  1,将java项目打成jar包   2.准备工具 3.将jar包传入服务器 3.使用Xshell运行jar包 4.下载安装nginx " />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                                <a class="navbar-brand" href="/">
+                    Winxray Node
+                </a>
+                
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        服务器使用Nginx部署Springboot项目（jar包）                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>部署SpringBoot项目到后台Nginx实现多项目反向代理</h3> <ul> <li><a href="#1javajar_2" rel="nofollow">1,将java项目打成jar包</a></li> <li> <ul> <li><a href="#2_6" rel="nofollow">2.准备工具</a></li> <li><a href="#3jar_11" rel="nofollow">3.将jar包传入服务器</a></li> <li><a href="#3Xshelljar_14" rel="nofollow">3.使用Xshell运行jar包</a></li> <li><a href="#4nginx_22" rel="nofollow">4.下载安装nginx</a></li> <li><a href="#5nginxconf_25" rel="nofollow">5.配置nginx.conf</a></li> <li><a href="#6_94" rel="nofollow">6通过域名访问(成功)</a></li> </ul> </li> </ul> </div> </h1> <p>这里我用到的是maven工具<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/c8e74bdf1784af159b4f8cd530968fcf.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /> 这里有两个项目，打包完成后一个为demo.jar,另一个为jst.jar</p> <h2><a id="2_6" rel="nofollow"></a>2.准备工具</h2> <p>1.<strong>服务器</strong><br /> 2.<strong>域名(注：经过备案)</strong><br /> 3.<strong>Xshell用于连接服务器</strong><br /> 4.<strong>WinScp（注:视图工具，用于传输jar）</strong></p> <h2><a id="3jar_11" rel="nofollow"></a>3.将jar包传入服务器</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/1da6041422957407e1dae04db4242ca5.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /><strong>直接拖动即可</strong></p> <h2><a id="3Xshelljar_14" rel="nofollow"></a>3.使用Xshell运行jar包</h2> <p>注：（服务器的java环境以及maven环境，各位请自行配置，这里不做描述。）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/f44cbb5daa08d023d4febab87f07423b.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /><strong>cd到jar包路径下执行：nohup java -jar demo.jar &gt;temp.txt &amp;</strong><br /><strong>执行启动完两个jar包后使用ip与端口号访问接口</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/bc2c4e59a39c2f787cc2249f680f34f5.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /><strong>（注:测试接口）</strong></p> <h2><a id="4nginx_22" rel="nofollow"></a>4.下载安装nginx</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/85973013"  rel="nofollow">安装教程</a></p> <h2><a id="5nginxconf_25" rel="nofollow"></a>5.配置nginx.conf</h2> <p>**(注：*********<strong>代表服务器地址)</strong></p> <pre><code class="prism language-java">http<span class="token punctuation">{<!-- --></span>     include       mime<span class="token punctuation">.</span>types<span class="token punctuation">;</span>     default_type  application<span class="token operator">/</span>octet<span class="token operator">-</span>stream<span class="token punctuation">;</span>      #log_format  main<span class="token string">'$remote_addr - $remote_user [$time_local] "$request" '</span>     #<span class="token string">'$status $body_bytes_sent "$http_referer" '</span>     #<span class="token string">'"$http_user_agent" "$http_x_forwarded_for"'</span><span class="token punctuation">;</span>      #access_log  logs<span class="token operator">/</span>access<span class="token punctuation">.</span>log  main<span class="token punctuation">;</span>      sendfile        on<span class="token punctuation">;</span>     #tcp_nopush     on<span class="token punctuation">;</span>      #keepalive_timeout<span class="token number">0</span><span class="token punctuation">;</span>     keepalive_timeout<span class="token number">65</span><span class="token punctuation">;</span>      #gzip  on<span class="token punctuation">;</span>       server<span class="token punctuation">{<!-- --></span>      #监听的端口号         listen<span class="token number">80</span><span class="token punctuation">;</span>         #设置访问的二级域名         server_name  demo<span class="token punctuation">.</span>eysource<span class="token punctuation">.</span>com<span class="token punctuation">;</span>          #charset koi8<span class="token operator">-</span>r<span class="token punctuation">;</span>          #access_log  logs<span class="token operator">/</span>host<span class="token punctuation">.</span>access<span class="token punctuation">.</span>log  main<span class="token punctuation">;</span>          location<span class="token operator">/</span><span class="token punctuation">{<!-- --></span>         #配置访问的项目路径（注<span class="token operator">:</span>这里重点）        proxy_pass  http<span class="token operator">:</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">:</span><span class="token number">9091</span><span class="token operator">/</span>         # root html<span class="token punctuation">;</span>        # index index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span>         proxy_set_header           Host $host<span class="token punctuation">;</span>         proxy_set_header  X<span class="token operator">-</span>Real<span class="token operator">-</span>IP  $remote_addr<span class="token punctuation">;</span>         proxy_set_header           X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For       $proxy_add_x_forwarded_for<span class="token punctuation">;</span>         client_max_body_size<span class="token number">100</span>m<span class="token punctuation">;</span>         root   html<span class="token punctuation">;</span>         index  index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span>    server<span class="token punctuation">{<!-- --></span>      #监听的端口号         listen<span class="token number">80</span><span class="token punctuation">;</span>         #设置访问的二级域名         server_name  aaa<span class="token punctuation">.</span>eysource<span class="token punctuation">.</span>com<span class="token punctuation">;</span>          #charset koi8<span class="token operator">-</span>r<span class="token punctuation">;</span>          #access_log  logs<span class="token operator">/</span>host<span class="token punctuation">.</span>access<span class="token punctuation">.</span>log  main<span class="token punctuation">;</span>          location<span class="token operator">/</span><span class="token punctuation">{<!-- --></span>         #配置访问的项目路径（注<span class="token operator">:</span>这里重点）        proxy_pass  http<span class="token operator">:</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">:</span><span class="token number">8080</span><span class="token operator">/</span>         # root html<span class="token punctuation">;</span>        # index index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span>         proxy_set_header           Host $host<span class="token punctuation">;</span>         proxy_set_header  X<span class="token operator">-</span>Real<span class="token operator">-</span>IP  $remote_addr<span class="token punctuation">;</span>         proxy_set_header           X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For       $proxy_add_x_forwarded_for<span class="token punctuation">;</span>         client_max_body_size<span class="token number">100</span>m<span class="token punctuation">;</span>         root   html<span class="token punctuation">;</span>         index  index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h2><a id="6_94" rel="nofollow"></a>6通过域名访问(成功)</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/a980c7d56baf8de03355b45e47479006.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-40227.htm">动物疫苗种类及研究进展报告范文大全（动物疫苗种类及研究进展报告范文大全）</a></p>
+                                        <p>下一个：<a href="/news/article-40731.htm">动物医院申请条件是什么意思呀怎么写的（动物医院需要几个兽医资格证）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share.htm" title="「10月10日」最高速度19.4M/S，2024年WinXray每天更新免费节点订阅链接">「10月10日」最高速度19.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29906.htm" title="动物疫苗经营许可证办理条件有哪些要求呢（办理动物疫苗销售需要哪些手续）">动物疫苗经营许可证办理条件有哪些要求呢（办理动物疫苗销售需要哪些手续）</a></li>
+                        <li class="py-2"><a href="/news/article-40226.htm" title="vue如何引入静态文件">vue如何引入静态文件</a></li>
+                        <li class="py-2"><a href="/news/article-24044.htm" title="软件模块之间耦合度的强弱排序">软件模块之间耦合度的强弱排序</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-winxray-github.htm" title="「11月24日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接">「11月24日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe.htm" title="「10月17日」最高速度21.4M/S，2024年WinXray每天更新免费节点订阅链接">「10月17日」最高速度21.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24271.htm" title="动物疫苗证明怎么开 动物疫苗证明怎么开具">动物疫苗证明怎么开 动物疫苗证明怎么开具</a></li>
+                        <li class="py-2"><a href="/news/article-23584.htm" title="VUE3.0使用ElementPlus开发登录界面">VUE3.0使用ElementPlus开发登录界面</a></li>
+                        <li class="py-2"><a href="/news/article-28703.htm" title="昆明免费领养猫（昆明领养猫咪的平台）">昆明免费领养猫（昆明领养猫咪的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-31055.htm" title="宠物医院好评语 宠物医院好评语30字通用">宠物医院好评语 宠物医院好评语30字通用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
