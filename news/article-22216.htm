@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://winxraynode.github.io/news/article-22216.htm" />
@@ -11,6 +11,33 @@
     <title>C#语法糖系列聊聊 ref，in 修饰符底层玩法</title>
         <meta name="description" content="自从 C# 7.3 放开 ref 之后，这玩法就太花哨了，也让 C# 这门语言变得越来越多范式，越来越重，这篇我们就来聊聊 ref，本质上来说 ref 的放开就是把 C/C++ 指针的那一套又拿回来了" />
         <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-22216.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="C#语法糖系列聊聊 ref，in 修饰符底层玩法" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/64db1aca3ad30659b557ea492d74b08e.webp" />
+        <meta property="og:release_date" content="2024-12-06T09:14:41" />
+    <meta property="og:updated_time" content="2024-12-06T09:14:41" />
+        <meta property="og:description" content="自从 C# 7.3 放开 ref 之后，这玩法就太花哨了，也让 C# 这门语言变得越来越多范式，越来越重，这篇我们就来聊聊 ref，本质上来说 ref 的放开就是把 C/C++ 指针的那一套又拿回来了" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C#语法糖系列聊聊 ref，in 修饰符底层玩法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
     <!-- FONT-AWESOME -->
@@ -124,16 +151,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-29613.htm" title="IndexError: tensors used as indices must be long, byte or bool tensors">IndexError: tensors used as indices must be long, byte or bool tensors</a></li>
-                        <li class="py-2"><a href="/news/article-24044.htm" title="软件模块之间耦合度的强弱排序">软件模块之间耦合度的强弱排序</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-winxray-windows.htm" title="「8月15日」最高速度19.5M/S，2024年WinXray每天更新免费节点订阅链接">「8月15日」最高速度19.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-latest-winxray-node.htm" title="「11月10日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接">「11月10日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-11-winxray-github.htm" title="「10月11日」最高速度18.1M/S，2024年WinXray每天更新免费节点订阅链接">「10月11日」最高速度18.1M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-winxray-node.htm" title="「10月15日」最高速度20.7M/S，2024年WinXray每天更新免费节点订阅链接">「10月15日」最高速度20.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20840.htm" title="让猫挠了轻微出血,打几针?（让猫挠了轻微出血多久***）">让猫挠了轻微出血,打几针?（让猫挠了轻微出血多久***）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-winxray-github.htm" title="「12月29日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接">「12月29日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-node-subscribe-links.htm" title="「10月12日」最高速度21.6M/S，2024年WinXray每天更新免费节点订阅链接">「10月12日」最高速度21.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-24-winxray-github.htm" title="「7月24日」最高速度21.1M/S，2024年WinXray每天更新免费节点订阅链接">「7月24日」最高速度21.1M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40227.htm" title="动物疫苗种类及研究进展报告范文大全（动物疫苗种类及研究进展报告范文大全）">动物疫苗种类及研究进展报告范文大全（动物疫苗种类及研究进展报告范文大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe.htm" title="「11月26日」最高速度21.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月26日」最高速度21.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-winxray-github.htm" title="「12月28日」最高速度22.9M/S，2024年WinXray每天更新免费节点订阅链接">「12月28日」最高速度22.9M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23127.htm" title="面向对象的7种设计原则(2)-接口隔离原则">面向对象的7种设计原则(2)-接口隔离原则</a></li>
+                        <li class="py-2"><a href="/news/article-35505.htm" title="哪里领养宠物（到哪领养宠物）">哪里领养宠物（到哪领养宠物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-node-subscribe.htm" title="「12月21日」最高速度21.4M/S，2024年WinXray每天更新免费节点订阅链接">「12月21日」最高速度21.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-winxray-node.htm" title="「11月6日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接">「11月6日」最高速度22.6M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-winxray-node-github.htm" title="「12月1日」最高速度18.9M/S，2024年WinXray每天更新免费节点订阅链接">「12月1日」最高速度18.9M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45689.htm" title="宠物狗衣服教程（宠物狗衣服教程视频）">宠物狗衣服教程（宠物狗衣服教程视频）</a></li>
+                        <li class="py-2"><a href="/news/article-30586.htm" title="动物疫苗品牌排名榜 动物疫苗品牌排名榜前十名">动物疫苗品牌排名榜 动物疫苗品牌排名榜前十名</a></li>
                     </ul>
     </div>
 </div>
@@ -145,25 +172,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

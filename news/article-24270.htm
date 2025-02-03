@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://winxraynode.github.io/news/article-24270.htm" />
@@ -11,6 +11,33 @@
     <title>kubeadm 搭建 K8s</title>
         <meta name="description" content="本篇主要记录一下 使用 kubeadm 搭建 k8s 详细过程 ，环境使用 VirtualBox 构建的3台虚拟机  1.环境准备  操作系统：Centos7 （CentOS Linux releas" />
         <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-24270.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="kubeadm 搭建 K8s" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/4e822db521c7d86b41c617478020230c.webp" />
+        <meta property="og:release_date" content="2024-12-11T09:53:38" />
+    <meta property="og:updated_time" content="2024-12-11T09:53:38" />
+        <meta property="og:description" content="本篇主要记录一下 使用 kubeadm 搭建 k8s 详细过程 ，环境使用 VirtualBox 构建的3台虚拟机  1.环境准备  操作系统：Centos7 （CentOS Linux releas" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="kubeadm 搭建 K8s">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
     <!-- FONT-AWESOME -->
@@ -124,16 +151,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-31419.htm" title="领养宠物怎么领养的呢（领养宠物流程图）">领养宠物怎么领养的呢（领养宠物流程图）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-subscribe-node.htm" title="「11月18日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「11月18日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40226.htm" title="vue如何引入静态文件">vue如何引入静态文件</a></li>
+                        <li class="py-2"><a href="/news/article-33914.htm" title="女人养猫咪好吗（女人养猫咪好吗知乎）">女人养猫咪好吗（女人养猫咪好吗知乎）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-winxray-node.htm" title="「11月25日」最高速度22.5M/S，2024年WinXray每天更新免费节点订阅链接">「11月25日」最高速度22.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/news/article-32480.htm" title="Linux上部署net6应用">Linux上部署net6应用</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-28-winxray-github.htm" title="「9月28日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接">「9月28日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-28-winxray-github.htm" title="「7月28日」最高速度19.1M/S，2024年WinXray每天更新免费节点订阅链接">「7月28日」最高速度19.1M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-high-speed-nodes.htm" title="「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19918.htm" title="宠物领养协议书范本免费版大全图文（宠物领养协议书范本免费版大全图文解释）">宠物领养协议书范本免费版大全图文（宠物领养协议书范本免费版大全图文解释）</a></li>
-                        <li class="py-2"><a href="/news/article-26378.htm" title="自己帮宠物打疫苗（自己给宠物打疫苗需要注意什么）">自己帮宠物打疫苗（自己给宠物打疫苗需要注意什么）</a></li>
-                        <li class="py-2"><a href="/news/article-32960.htm" title="合肥宠物免费领养（合肥宠物领养中心官网）">合肥宠物免费领养（合肥宠物领养中心官网）</a></li>
-                        <li class="py-2"><a href="/news/article-32958.htm" title="中国兽药厂家排名前100强电话号码（全国兽药厂家排名）">中国兽药厂家排名前100强电话号码（全国兽药厂家排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-today-winxray-node.htm" title="「12月3日」最高速度23M/S，2024年WinXray每天更新免费节点订阅链接">「12月3日」最高速度23M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50179.htm" title="宠物粮供应商电话 宠物粮供应商电话号码">宠物粮供应商电话 宠物粮供应商电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-47172.htm" title="郑州领养猫咪的网站（郑州哪里能领养猫）">郑州领养猫咪的网站（郑州哪里能领养猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-winxray-github.htm" title="「1月12日」最高速度19.5M/S，2025年WinXray每天更新免费节点订阅链接">「1月12日」最高速度19.5M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22216.htm" title="C#语法糖系列聊聊 ref，in 修饰符底层玩法">C#语法糖系列聊聊 ref，in 修饰符底层玩法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-node-share-links.htm" title="「11月15日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接">「11月15日」最高速度22.3M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -145,25 +172,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
