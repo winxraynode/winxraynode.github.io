@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-51742.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>numpy和tensor类型更改（增加或减少）参数维度（reshape）</title>
+        <meta name="description" content="首先需注意的是numpy和tensor的维度排列顺序不一样，这里拿一张图片的shape举例： to_tensor = torchvision.transforms.ToTensor() img = c" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-51742.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="numpy和tensor类型更改（增加或减少）参数维度（reshape）" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/ae70941929593b36f92452cf20b59672.webp" />
+        <meta property="og:release_date" content="2025-02-05T08:21:16" />
+    <meta property="og:updated_time" content="2025-02-05T08:21:16" />
+        <meta property="og:description" content="首先需注意的是numpy和tensor的维度排列顺序不一样，这里拿一张图片的shape举例： to_tensor = torchvision.transforms.ToTensor() img = c" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="numpy和tensor类型更改（增加或减少）参数维度（reshape）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="#">关于</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">联系</a>
+                        </li>
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        numpy和tensor类型更改（增加或减少）参数维度（reshape）                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>首先需注意的是numpy和tensor的维度排列顺序不一样，这里拿一张图片的shape举例：</p> <pre><code>to_tensor = torchvision.transforms.ToTensor() img = cv2.imread("sample.jpg") img_tensor = to_tensor(img) print(type(img))  # &lt;class 'numpy.ndarray'&gt; print(img.shape)  # (450, 500, 3) print(type(img_tensor))  # &lt;class 'torch.Tensor'&gt; print(img_tensor.shape)  # torch.Size([3, 450, 500]) </code></pre> <p>如果想改变数组内元素的排列顺序，torch和numpy都自带reshape方法：</p> <pre><code># 展平操作 print(np.reshape(img, (1, 1, -1)).shape)  # (1, 1, 675000) print(torch.reshape(img_tensor, (1, 1, -1)).shape)  # torch.Size([1, 1, 675000]) # 注意-1的含义是让计算机自己计算这里的值（因为元素总数是不会变的，该例3*450*500 = 675000） # 但“-1”至多出现一次，也很好理解，假若两个位置需要计算机计算（-1），显然是无法做到的 </code></pre> <p>增加（减少）维度，以numpy为例（tensor同用法）：</p> <pre><code># 减少维度 img_1 = img[:, :, 1]  # 截取 img_2 = np.reshape(img, (450, -1))  # reshape方法必须保证总量不变 print(img_1.shape)  # (450, 500) print(img_2.shape)  # (450, 1500)  # 增加维度 a = np.array((3, 2, 3)) b = a[:, None, None] c = np.reshape(a, (3, 1, -1)) print(a.shape)  # (3,) print(b.shape)  # (3, 1, 1) print(c.shape)  # (3, 1, 1)</code></pre> <p>实例应用：</p> <p>在图像标准化处理中假设我们计算得到RGB的均值(mean)为（127， 127， 127）&nbsp;标准差std为（8， 8， 8），那么我们接下来要对整个图片各个位置的RGB进行(img - mean) / std&nbsp;计算，显然是不能直接计算的，因为原图是个三维矩阵，而我们计算得到的均值和标准差都是一维的（包含三个值），所以在计算过程中需要对mean和std进行增加维度操作。</p> <pre><code># 举例 img = np.random.randint(0, 255, (2, 2, 3)) mean = np.array((127, 127, 127)) std = np.array((8, 8, 8)) img_result = (img - mean[None, None, :]) / std[None, None, :] print("处理前：", img) # [[[177   1 231] #   [  1 109 203]] #  #  [[177 135 146] #   [ 66  89 122]]] print("处理后", img_result) # [[[  6.25  -15.75   13.   ] #   [-15.75   -2.25    9.5  ]] #  #  [[  6.25    1.      2.375] #   [ -7.625  -4.75   -0.625]]] </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51192.htm">猫咪打疫苗要多少钱大概（猫咪打疫苗要多少钱大概一针）</a></p>
+                                        <p>下一个：<a href="/news/article-51745.htm">docker-compose部署Yapi的方法_docker</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21711.htm" title="宠物医院收费价目表2022图片大全及价格（宠物医院价格表 收费）">宠物医院收费价目表2022图片大全及价格（宠物医院价格表 收费）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-node-subscribe-links.htm" title="「1月29日」最高速度22.5M/S，2025年WinXray每天更新免费节点订阅链接">「1月29日」最高速度22.5M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46688.htm" title="动物疫苗发展前景怎么样啊（动物疫苗发展前景怎么样啊视频）">动物疫苗发展前景怎么样啊（动物疫苗发展前景怎么样啊视频）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-high-speed-nodes.htm" title="「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接">「12月13日」最高速度22.4M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45690.htm" title="动物疫苗稀释液首选（动物疫苗制备流程）">动物疫苗稀释液首选（动物疫苗制备流程）</a></li>
+                        <li class="py-2"><a href="/news/article-44175.htm" title="开宠物店利润怎么样（开宠物店一天利润多少才能不亏）">开宠物店利润怎么样（开宠物店一天利润多少才能不亏）</a></li>
+                        <li class="py-2"><a href="/news/article-39727.htm" title="Vant组件样式没有生效">Vant组件样式没有生效</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-winxray-node.htm" title="「1月1日」最高速度21.2M/S，2025年WinXray每天更新免费节点订阅链接">「1月1日」最高速度21.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-today-winxray-node.htm" title="「12月8日」最高速度19M/S，2024年WinXray每天更新免费节点订阅链接">「12月8日」最高速度19M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39259.htm" title="猫的疫苗三针隔多久打一次（猫的疫苗三针隔多久打一次好）">猫的疫苗三针隔多久打一次（猫的疫苗三针隔多久打一次好）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
