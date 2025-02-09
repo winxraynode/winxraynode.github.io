@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-53343.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>python ui框架_PyQt5GUI项目程序框架</title>
+        <meta name="description" content="本次介绍PyQt5 GUI应用程序框架组成，以dialogApp项目文件组成为例，其他类似。 主要做两件事情：1、窗体UI设计，主要在Qt Designer内完成；2、对应窗体业务逻辑类功能实现，在m" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-53343.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="python ui框架_PyQt5GUI项目程序框架" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/e264ac0e7eb6701e1ed017a657e6da9c.webp" />
+        <meta property="og:release_date" content="2025-02-08T04:41:46" />
+    <meta property="og:updated_time" content="2025-02-08T04:41:46" />
+        <meta property="og:description" content="本次介绍PyQt5 GUI应用程序框架组成，以dialogApp项目文件组成为例，其他类似。 主要做两件事情：1、窗体UI设计，主要在Qt Designer内完成；2、对应窗体业务逻辑类功能实现，在m" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python ui框架_PyQt5GUI项目程序框架">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        python ui框架_PyQt5GUI项目程序框架                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="._5ce-wx-style" style="font-size:16px;"> <div class="rich_media_content" id="js_content"> <p>本次介绍PyQt5 GUI应用程序框架组成，以dialogApp项目文件组成为例，其他类似。</p> <p>主要做两件事情：1、窗体UI设计，主要在Qt Designer内完成；2、对应窗体业务逻辑类功能实现，在myDialog.py文件内编写实现代码。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/4e4a5f5b953e6d84ba5cc9b2feb93b17.jpg" alt="python ui框架_PyQt5GUI项目程序框架"></p> <p>1、Python运行程序时会自动生成的临时文件夹_Pycache_。</p> <p>2、QtApp是创建Qt C++ GUI项目Qt App所在的文件夹。\QtAPP\images目录下是Qt项目资源文件用到的图标和图片文件位置。Qt项目文件是QtApp.pro,窗体文件是Dialog.ui。</p> <p>3、子文件夹QtApp下文件Dialog.ui是在Qt Creator里设计的窗体UI文件，在完成可视化窗体设计后将其覆盖dialogApp文件夹内的同名文件。每次在QtApp项目里修改了窗体文件后，应该将新的文件复制到此处并覆盖原有文件，文件内类名称为Ui_Dialog。</p> <p>4、将窗体文件Dialog.ui编译转换为相应的python类定义文件，文件ui_Dialog.py是用pyuic5对文件Dialog.ui编译转换得到的python程序文件。</p> <p>备注：文件uic.bat是一个批处理文件，用于复制Dialog.ui文件，并用pyuic5指令编译Dialog.ui文件而生成文件ui_Dialog.py。该命令包括了第3步复制命令，因此以上覆盖操作可省略。同时需要使用pyrcc5.exe工具将资源文件res.qrc编译为一个对应的Python文件 res_rc.py，编译后必须是原文件名后加”_rc”。res_rc.py文件里存储了图标的十六进制编码数据及相关的管理代码。</p> <p>uic.bat脚本</p> <pre class="has"><code>copy&nbsp;.\QtApp\Dialog.ui&nbsp;&nbsp;Dialog.ui<br/><br/>pyuic5&nbsp;-o&nbsp;ui_Dialog.py&nbsp;Dialog.ui<br/><br/>pyrcc5&nbsp;.\QtApp\res.qrc&nbsp;-o&nbsp;res_rc.py&nbsp;&nbsp;&nbsp;#当文件多于一个或UI文件名不同,可根据需要修改文件内容</code></pre> <p>可在&nbsp;PyCharm中设置快捷命令，具体可参考博客-PyCharm中如何使用Qt Designer</p> <blockquote><p>    https://www.jianshu.com/p/1b2e6237eb3d   </p></blockquote> <p>5、文件myDialog.py是一个对窗体进行业务逻辑操作的类的文件，文件内类的名称QmyDialog。</p> <p>6、 文件appMain.py是创建应用程序和QmyDialog类窗体对象的实例，显示窗体并运行的主程序。当一个应用程序有多个窗体，并且窗体之间有数据传递时，appMain.py负责创建应用程序的主窗口，使整个应用程序结构清晰。</p> <p><strong>项目模板</strong></p> <h2><span style="font-weight:bold;">myDialog.py</span></h2> <pre class="has"><code>from&nbsp;PyQt5.Qt&nbsp;import&nbsp;*<br/><br/>from&nbsp;ui_Dialog&nbsp;import&nbsp;Ui_Dialog<br/><br/><br/>class&nbsp;QmyDialog(QDialog):<br/>&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;parent=None):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(parent)&nbsp;&nbsp;#&nbsp;调用父类构造函数，创建窗体<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ui&nbsp;=&nbsp;Ui_Dialog()&nbsp;&nbsp;#&nbsp;创建UI对象<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ui.setupUi(self)&nbsp;&nbsp;#&nbsp;构造UI界面<br/><br/><br/>##&nbsp;&nbsp;============自定义功能函数========================<br/><br/><br/>##&nbsp;&nbsp;===========event处理函数==========================<br/><br/><br/>##&nbsp;&nbsp;========由connectSlotsByName()自动与组件信号关联的槽函数=========<br/><br/><br/>##&nbsp;&nbsp;==========自定义槽函数===============================<br/><br/><br/>##&nbsp;&nbsp;============窗体测试程序&nbsp;============================<br/>if&nbsp;__name__&nbsp;==&nbsp;"__main__":&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;sys&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;app&nbsp;=&nbsp;QApplication(sys.argv)&nbsp;&nbsp;#&nbsp;创建GUI应用程序<br/>&nbsp;&nbsp;&nbsp;&nbsp;form&nbsp;=&nbsp;QmyDialog()&nbsp;&nbsp;#&nbsp;创建窗体<br/>&nbsp;&nbsp;&nbsp;&nbsp;form.show()<br/>&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(app.exec_())<br/></code></pre> </h1> <pre class="has"><code>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-<br/><br/>##&nbsp;&nbsp;GUI应用程序主程序入口<br/><br/>import&nbsp;sys<br/><br/>from&nbsp;PyQt5.QtWidgets&nbsp;import&nbsp;&nbsp;QApplication<br/><br/>from&nbsp;myDialog&nbsp;import&nbsp;QmyDialog<br/><br/>app&nbsp;=&nbsp;QApplication(sys.argv)&nbsp;&nbsp;&nbsp;&nbsp;#创建GUI应用程序<br/>##icon&nbsp;=&nbsp;QIcon(":/icons/images/app.ico")<br/>##app.setWindowIcon(icon)<br/><br/>mainform=QmyDialog()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#创建主窗体<br/><br/>mainform.show()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示主窗体<br/><br/>sys.exit(app.exec_())&nbsp;<br/></code></pre> <p>窗体常用类是QWidget、QDialog和QMainWindow。至此我们了解到了整个项目基本代码框架组成，后面将学习的重点放在界面控件、类的各种接口属性和函数使用以及业务逻辑功能的实现上，接下来可以愉快地开发自己的GUI应用程序了。</p> </p></div> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53342.htm">微信小程序四（设置底部导航）</a></p>
+                                        <p>下一个：<a href="/news/article-53891.htm">Vue简单实现自定义拖拽</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-latest-winxray-node.htm" title="「11月7日」最高速度22.7M/S，2024年WinXray每天更新免费节点订阅链接">「11月7日」最高速度22.7M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-latest-winxray-node.htm" title="「11月10日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接">「11月10日」最高速度21.5M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-winxray-github.htm" title="「1月17日」最高速度19.3M/S，2025年WinXray每天更新免费节点订阅链接">「1月17日」最高速度19.3M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36785.htm" title="Maven安装与配置，Idea配置Maven">Maven安装与配置，Idea配置Maven</a></li>
+                        <li class="py-2"><a href="/news/article-48488.htm" title="重庆哪里可以领养宠物猫咪的（重庆哪里可以领养猫猫）">重庆哪里可以领养宠物猫咪的（重庆哪里可以领养猫猫）</a></li>
+                        <li class="py-2"><a href="/news/article-49140.htm" title="动物防疫疫苗费取消的相关文件是哪些（动物疫苗管理法律法规）">动物防疫疫苗费取消的相关文件是哪些（动物疫苗管理法律法规）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-latest-winxray-node.htm" title="「1月10日」最高速度18.7M/S，2025年WinXray每天更新免费节点订阅链接">「1月10日」最高速度18.7M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27768.htm" title="Android：两个Activity之间通过Intent传值">Android：两个Activity之间通过Intent传值</a></li>
+                        <li class="py-2"><a href="/news/article-30586.htm" title="动物疫苗品牌排名榜 动物疫苗品牌排名榜前十名">动物疫苗品牌排名榜 动物疫苗品牌排名榜前十名</a></li>
+                        <li class="py-2"><a href="/news/article-19466.htm" title="饲料搅拌机500型多少钱一台（饲料搅拌机500型多少钱一台啊）">饲料搅拌机500型多少钱一台（饲料搅拌机500型多少钱一台啊）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

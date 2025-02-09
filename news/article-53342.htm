@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-53342.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>微信小程序四（设置底部导航）</title>
+        <meta name="description" content="好了 小程序的头部标题 设置好了，我们来说说底部导航栏是如何实现的。 我们先来看个效果图  这里，我们添加了三个导航图标，因为我们有三个页面，微信小程序最多能加5个。 那他们是怎么出现怎么着色的呢？两" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-53342.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="微信小程序四（设置底部导航）" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/a79d7e5253310157bd38f12e537f7413.webp" />
+        <meta property="og:release_date" content="2025-02-08T04:41:46" />
+    <meta property="og:updated_time" content="2025-02-08T04:41:46" />
+        <meta property="og:description" content="好了 小程序的头部标题 设置好了，我们来说说底部导航栏是如何实现的。 我们先来看个效果图  这里，我们添加了三个导航图标，因为我们有三个页面，微信小程序最多能加5个。 那他们是怎么出现怎么着色的呢？两" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="微信小程序四（设置底部导航）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        微信小程序四（设置底部导航）                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size:18px">好了 小程序的头部标题 设置好了，我们来说说底部导航栏是如何实现的。</span></p> <p><span style="font-size:18px">我们先来看个效果图</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/bf2f698159748d76fb7692a46e551a7f.jpg" alt="微信小程序四（设置底部导航）"></p> <p><span style="font-size:18px">这里，我们添加了三个导航图标，因为我们有三个页面，微信小程序最多能加5个。</span></p> <p><span style="font-size:18px">那他们是怎么出现怎么着色的呢？两步就搞定！</span></p> <p><span style="font-size:18px"><br /></span></p> <h2><span style="font-size:18px">1. 图标准备</span></h2> <p><span style="font-size:18px">阿里图标库 &nbsp;<a target="_blank" href="http://www.iconfont.cn/collections/show/29" rel="nofollow">http://www.iconfont.cn/collections/show/29</a><br /></span></p> <p><span style="font-size:18px">我们进入该网站，鼠标滑到一个喜欢的图标上面 &nbsp;点击下方的 下载按钮</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/4f7801fbc482a4414625e8e4243b93f3.jpg" alt="微信小程序四（设置底部导航）"></p> <p><span style="font-size:18px">在弹出框中 选择了 俩个不同颜色的 图标 &nbsp;选择64px大小即可，我选择的是png &nbsp;然后下载下来 起上别名&nbsp;</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/68e942ad554ef63a9b532d1e20342e70.jpg" alt="微信小程序四（设置底部导航）"></p> <p><span style="font-size:18px">将上述起好名字的图标 保存到 小程序 项目目录中 新创建的 images 文件夹中，准备工作就做好了</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/2698f537734cc0c2b935f1963a265058.jpg" alt="微信小程序四（设置底部导航）"></p> <p></p> <h2><span style="font-size:18px">2. 更改配置文件</span></h2> <p><span style="font-size:18px">我们找到项目根目录中的配置文件 app.json 加入如下配置信息</span></p> <pre><code class="language-html"> "tabBar": {     "color": "#a9b7b7",     "selectedColor": "#11cd6e",     "borderStyle":"white",     "list": [{       "selectedIconPath": "images/111.png",       "iconPath": "images/11.png",       "pagePath": "pages/index/index",       "text": "首页"     }, {       "selectedIconPath": "images/221.png",       "iconPath": "images/22.png",       "pagePath": "pages/logs/logs",       "text": "日志"     }, {       "selectedIconPath": "images/331.png",       "iconPath": "images/33.png",       "pagePath": "pages/test/test",       "text": "开心测试"     }]   },</code></pre> <p><span style="font-size:18px">解释一下 对应的属性信息</span></p> <p><span style="font-size:18px"><span style="background-color:rgb(255,255,255)"><span style="color:#3366ff">tabBar</span></span> &nbsp;指底部的 导航配置属性</span></p> <p><span style="font-size:18px"><span style="color:#3366ff">color</span> &nbsp;未选择时 底部导航文字的颜色</span></p> <p><span style="font-size:18px"><span style="background-color:rgb(255,255,255)"><span style="color:#3366ff">selectedColor</span><span style="color:#33ccff"> </span></span>&nbsp;选择时 底部导航文字的颜色</span></p> <p><span style="font-size:18px"><span style="color:#3366ff">borderStyle</span> &nbsp;底部导航边框的样色（注意 <span style="color:#ff0000">这里如果没有写入样式 会导致 导航框上边框会出现默认的浅灰色线条</span>）</span></p> <p><span style="font-size:18px"><span style="background-color:rgb(255,255,255)"><span style="color:#3366ff">list</span></span> &nbsp; 导航配置数组</span></p> <p><span style="font-size:18px"><span style="color:#3366ff">selectedIconPath</span> 选中时 图标路径</span></p> <p><span style="font-size:18px"><span style="color:#3366ff">iconPath</span> 未选择时 图标路径</span></p> <p><span style="font-size:18px"><span style="color:#3366ff">pagePath</span> 页面访问地址</span></p> <p><span style="font-size:18px"><span style="color:#3366ff">text</span> &nbsp;导航图标下方文字</span></p> <p><span style="font-size:18px"><br /></span></p> <p><span style="font-size:18px">如果要改变更详细的样式 请参看</span></p> <p><span style="font-size:18px"><a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#tabBar"  rel="nofollow">https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#tabBar</a><br /></span></p> <p><span style="font-size:18px"><br /></span></p> <p><span style="font-size:18px">好了，保存 编译 &nbsp;就可以看到上面的效果了。</span></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52803.htm">宠物疫苗编号 宠物疫苗编号查询网站</a></p>
+                                        <p>下一个：<a href="/news/article-53343.htm">python ui框架_PyQt5GUI项目程序框架</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-30583.htm" title="动物疫苗多长时间内打一次最好（动物疫苗间隔时间）">动物疫苗多长时间内打一次最好（动物疫苗间隔时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-winxray-github.htm" title="「2月9日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接">「2月9日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-51191.htm" title="被猫抓了没有破皮需要打针吗（被猫抓了但是没有破皮需要打针吗）">被猫抓了没有破皮需要打针吗（被猫抓了但是没有破皮需要打针吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-winxray-github.htm" title="「1月6日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接">「1月6日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-51742.htm" title="numpy和tensor类型更改（增加或减少）参数维度（reshape）">numpy和tensor类型更改（增加或减少）参数维度（reshape）</a></li>
+                        <li class="py-2"><a href="/news/article-52279.htm" title="打动物疫苗去哪打的（动物疫苗归哪个部门管）">打动物疫苗去哪打的（动物疫苗归哪个部门管）</a></li>
+                        <li class="py-2"><a href="/news/article-19919.htm" title="动物疫苗接种间隔多久（动物疫苗接种间隔多久打一次）">动物疫苗接种间隔多久（动物疫苗接种间隔多久打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-43700.htm" title="动物防疫站打针免费吗多少钱 动物防疫站打针免费吗多少钱一针">动物防疫站打针免费吗多少钱 动物防疫站打针免费吗多少钱一针</a></li>
+                        <li class="py-2"><a href="/news/article-52803.htm" title="宠物疫苗编号 宠物疫苗编号查询网站">宠物疫苗编号 宠物疫苗编号查询网站</a></li>
+                        <li class="py-2"><a href="/news/article-38240.htm" title="Win10查看已存储WiFi密码的两种方法">Win10查看已存储WiFi密码的两种方法</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
