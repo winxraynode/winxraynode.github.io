@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-61254.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>杨氏矩阵详解</title>
+        <meta name="description" content="题目名称： 杨氏矩阵 题目内容： 有一个数字矩阵，矩阵的每行从左到右是递增的，矩阵从上到下是递增的，请编写程序在这样的矩阵中查找某个数字是否存在。 要求：时间复杂度小于O(N);  &nbsp; 思路" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-61254.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="杨氏矩阵详解" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/e264ac0e7eb6701e1ed017a657e6da9c.webp" />
+        <meta property="og:release_date" content="2025-02-22T07:13:24" />
+    <meta property="og:updated_time" content="2025-02-22T07:13:24" />
+        <meta property="og:description" content="题目名称： 杨氏矩阵 题目内容： 有一个数字矩阵，矩阵的每行从左到右是递增的，矩阵从上到下是递增的，请编写程序在这样的矩阵中查找某个数字是否存在。 要求：时间复杂度小于O(N);  &nbsp; 思路" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="杨氏矩阵详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        杨氏矩阵详解                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <blockquote> <p>题目名称：</p> <p>杨氏矩阵</p> <p>题目内容：</p> <p>有一个数字矩阵，矩阵的每行从左到右是递增的，矩阵从上到下是递增的，请编写程序在这样的矩阵中查找某个数字是否存在。</p> <p>要求：时间复杂度小于O(N);</p> </blockquote> <p>&nbsp;</p> <p>思路一： 数组行列递增，是有规律的，所以可以遍历数组寻找数字，但是这题有时间复杂度的要求，遍历数组时间复杂度是O(N*2)，不满足题意。</p> <p>思路二： 如图所示，矩阵右上角的数字5是它这一行里最大的，是它这一列里的最小的。</p> <p>矩阵左下角的数字21是它这一行里最小的，是它这一列里的最大的。</p> <p><img fetchpriority="high" decoding="async" alt="" height="200" src="http://img.555519.xyz/uploads/20230202/3b0665dbf8639522fcc920e9af7a2169.jpg"></p> <p>&nbsp;借助这个结论，可以发现，比如要找数字7，它比右上角的数字5大，所以可以排除第一行；比如要找数字23，它比左下角的21大，所以可以排除第一列。</p> <p>代码如下：</p> <pre><code class="language-cpp">int search(int arr[3][3], int r, int c, int k) { 	int x = 0; 	int y = c - 1; 	while (x &lt; r &amp;&amp; c &gt;= 0) 	{ 		if (k &gt; arr[x][y]) 			x++; 		else if (k &lt; arr[x][y]) 			y--; 		else 			return 1; 	} 	return 0; } int main() { 	int arr[3][3] = {1,2,3,4,5,6,7,8,9}; 	int k = 0; 	scanf("%d", &amp;k); 	int ret = search(arr,3,3, k); 	if (ret == 1) 		printf("YES\n"); 	else 		printf("NO\n"); 	return 0; }</code></pre> <p>&nbsp;</p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60655.htm">宠物零食加工设备批发 宠物零食加工设备批发厂家</a></p>
+                                        <p>下一个：<a href="/news/article-61255.htm">宠物医院美团评价 宠物医院美团评价好评文案</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-winxray-node-github.htm" title="「12月1日」最高速度18.9M/S，2024年WinXray每天更新免费节点订阅链接">「12月1日」最高速度18.9M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-37721.htm" title="动物疫苗的使用年限是多少（动物疫苗规定）">动物疫苗的使用年限是多少（动物疫苗规定）</a></li>
+                        <li class="py-2"><a href="/news/article-36004.htm" title="Kotlin的标准函数和静态方法">Kotlin的标准函数和静态方法</a></li>
+                        <li class="py-2"><a href="/news/article-32004.htm" title="白银上市公司有哪些(黄金上市公司有哪些)">白银上市公司有哪些(黄金上市公司有哪些)</a></li>
+                        <li class="py-2"><a href="/news/article-29906.htm" title="动物疫苗经营许可证办理条件有哪些要求呢（办理动物疫苗销售需要哪些手续）">动物疫苗经营许可证办理条件有哪些要求呢（办理动物疫苗销售需要哪些手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-high-speed-nodes.htm" title="「12月27日」最高速度19.9M/S，2024年WinXray每天更新免费节点订阅链接">「12月27日」最高速度19.9M/S，2024年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-node-subscribe-links.htm" title="「2月15日」最高速度18.1M/S，2025年WinXray每天更新免费节点订阅链接">「2月15日」最高速度18.1M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38755.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
+                        <li class="py-2"><a href="/news/article-19467.htm" title="宠物粮品牌排行榜前十 宠物粮品牌排行榜前十名">宠物粮品牌排行榜前十 宠物粮品牌排行榜前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-high-speed-nodes.htm" title="「1月11日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接">「1月11日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
