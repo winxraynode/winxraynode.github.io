@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-71903.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关于Spring中@Order注解的使用</title>
+        <meta name="description" content="@关于Spring中@Order注解的使用 先来一段代码： publicinterfaceDefaultService{voidsend();} @Component @Order(2)publicc" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-71903.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="关于Spring中@Order注解的使用" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/80d9ee68aa8583b1b2821cf7a85a302c.webp" />
+        <meta property="og:release_date" content="2025-03-11T07:48:43" />
+    <meta property="og:updated_time" content="2025-03-11T07:48:43" />
+        <meta property="og:description" content="@关于Spring中@Order注解的使用 先来一段代码： publicinterfaceDefaultService{voidsend();} @Component @Order(2)publicc" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="关于Spring中@Order注解的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        关于Spring中@Order注解的使用                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>@<a href="%E8%BF%99%E9%87%8C%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%AE%E5%BD%95%E6%A0%87%E9%A2%98" rel="nofollow">关于Spring中@Order注解的使用</a></p> <p><strong>先来一段代码：</strong></p> <pre><code class="prism language-javascript"><span class="token keyword">public</span><span class="token keyword">interface</span><span class="token class-name">DefaultService</span><span class="token punctuation">{<!-- --></span><span class="token keyword">void</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript">@Component @<span class="token function">Order</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ServiceA</span><span class="token keyword">implements</span><span class="token class-name">DefaultService</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token function">ServiceA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor ServiceA"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>      @Override<span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"ServiceA.send"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript">@Component @<span class="token function">Order</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ServiceB</span><span class="token keyword">implements</span><span class="token class-name">DefaultService</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token function">ServiceB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"constructor ServiceB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>      @Override<span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"ServiceB.send"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript">@Component<span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">SortedService</span><span class="token punctuation">{<!-- --></span>      @Autowired<span class="token keyword">private</span> List<span class="token operator">&lt;</span>DefaultService<span class="token operator">&gt;</span> list<span class="token punctuation">;</span>     @Autowired<span class="token keyword">private</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> DefaultService<span class="token operator">&gt;</span> map<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         Optional<span class="token punctuation">.</span><span class="token keyword">of</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ifPresent</span><span class="token punctuation">(</span>l<span class="token operator">-</span><span class="token operator">&gt;</span> l<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>e<span class="token operator">-</span><span class="token operator">&gt;</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出</span><span class="token comment">//com.example.demo.service.ServiceB@19b843ba</span><span class="token comment">//com.example.demo.service.ServiceA@2462cb01</span><span class="token comment">//构造方法</span><span class="token comment">//constructor ServiceA</span><span class="token comment">//constructor ServiceB</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><strong>我们可以看到，ServiceA和ServiceB的实例化顺序是不受@Order注解影响的，受影响的只是@Autowired自动注入时的一个注入的顺序（接口的实现类集合list是按照@Order顺序排列的）。</strong></p> <p><strong>再来一段代码：</strong></p> <pre><code class="prism language-javascript">@Component @<span class="token function">Order</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">RunnerA</span><span class="token keyword">implements</span><span class="token class-name">ApplicationRunner</span><span class="token punctuation">{<!-- --></span>     @Override<span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span>ApplicationArguments args<span class="token punctuation">)</span> throws Exception<span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"RunnerA.run"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript">@Component @<span class="token function">Order</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">RunnerB</span><span class="token keyword">implements</span><span class="token class-name">ApplicationRunner</span><span class="token punctuation">{<!-- --></span>     @Override<span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">run</span><span class="token punctuation">(</span>ApplicationArguments args<span class="token punctuation">)</span> throws Exception<span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"RunnerB.run"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript">@SpringBootApplication<span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">DemoApplication</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         ConfigurableApplicationContext ctx<span class="token operator">=</span> SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>DemoApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//RunnerB.run</span><span class="token comment">//RunnerA.run</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript"><span class="token keyword">private</span><span class="token keyword">void</span><span class="token function">callRunners</span><span class="token punctuation">(</span>ApplicationContext context<span class="token punctuation">,</span> ApplicationArguments args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		List<span class="token operator">&lt;</span>Object<span class="token operator">&gt;</span> runners<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		runners<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span><span class="token function">getBeansOfType</span><span class="token punctuation">(</span>ApplicationRunner<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		runners<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span><span class="token function">getBeansOfType</span><span class="token punctuation">(</span>CommandLineRunner<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 容器已经完成了初始化后，排序后调用接口实现类</span> 		AnnotationAwareOrderComparator<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>runners<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span><span class="token punctuation">(</span>Object runner<span class="token punctuation">:</span><span class="token keyword">new</span><span class="token class-name">LinkedHashSet</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>runners<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span>runner<span class="token keyword">instanceof</span><span class="token class-name">ApplicationRunner</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">callRunner</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ApplicationRunner<span class="token punctuation">)</span> runner<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">if</span><span class="token punctuation">(</span>runner<span class="token keyword">instanceof</span><span class="token class-name">CommandLineRunner</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">callRunner</span><span class="token punctuation">(</span><span class="token punctuation">(</span>CommandLineRunner<span class="token punctuation">)</span> runner<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><strong>其实在Spring官网已经对@Order注解的作用做了很详细的描述</strong></p> <blockquote> <p>Your target beans can implement the org.springframework.core.Ordered interface or use the @Order or standard @Priority annotation if you want items in the array or list to be sorted in a specific order. Otherwise, their order follows the registration order of the corresponding target bean definitions in the container.</p> </blockquote> <blockquote> <p>You can declare the @Order annotation at the target class level and on @Bean methods, potentially for individual bean definitions (in case of multiple definitions that use the same bean class). @Order values may influence priorities at injection points, but be aware that they do not influence singleton startup order, which is an orthogonal concern determined by dependency relationships and @DependsOn declarations.<br /><mark>@Order值可能会影响注入点的优先级，但是要注意它们不会影响单例启动顺序，单例启动顺序是由依赖关系和@DependsOn声明决定的正交关系</mark></p> </blockquote> <blockquote> <p>Note that the standard javax.annotation.Priority annotation is not available at the @Bean level, since it cannot be declared on methods. Its semantics can be modeled through @Order values in combination with @Primary on a single bean for each type.</p> </blockquote> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71233.htm">动物医院好评语（动物医院好评语30字通用）</a></p>
+                                        <p>下一个：<a href="/news/article-71906.htm">IDEA工程-数据库连接-mysql连接</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-39257.htm" title="动物疫苗市场促销方案（动物疫苗市场促销方案设计）">动物疫苗市场促销方案（动物疫苗市场促销方案设计）</a></li>
+                        <li class="py-2"><a href="/news/article-68605.htm" title="梦见抱住别的女人是什么意思（梦见抱着别人的女人是什么意思）">梦见抱住别的女人是什么意思（梦见抱着别人的女人是什么意思）</a></li>
+                        <li class="py-2"><a href="/news/article-48154.htm" title="小动物为什么要打疫苗（动物为什么要打抗生素）">小动物为什么要打疫苗（动物为什么要打抗生素）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-winxray-node-github.htm" title="「2月11日」最高速度18.9M/S，2025年WinXray每天更新免费节点订阅链接">「2月11日」最高速度18.9M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-71233.htm" title="动物医院好评语（动物医院好评语30字通用）">动物医院好评语（动物医院好评语30字通用）</a></li>
+                        <li class="py-2"><a href="/news/article-51745.htm" title="docker-compose部署Yapi的方法_docker">docker-compose部署Yapi的方法_docker</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-winxray-github.htm" title="「2月25日」最高速度18.5M/S，2025年WinXray每天更新免费节点订阅链接">「2月25日」最高速度18.5M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47659.htm" title="Spring Boot 2.3 新特性分层JAR详解">Spring Boot 2.3 新特性分层JAR详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-node-subscribe-links.htm" title="「2月22日」最高速度19M/S，2025年WinXray每天更新免费节点订阅链接">「2月22日」最高速度19M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40729.htm" title="服务器使用Nginx部署Springboot项目（jar包）">服务器使用Nginx部署Springboot项目（jar包）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
