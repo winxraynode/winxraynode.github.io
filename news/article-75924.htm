@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-75924.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MybatisPlus拓展——实现多数据源操作</title>
+        <meta name="description" content="多数据源  适用：一般工作时候会有多个数据库，每个库对应不同的业务数据。程序如果每次数据都访问同一个数据库，该数据库压力很大访问会很慢。  官方文档：https://baomidou.com/(建议多" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-75924.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="MybatisPlus拓展——实现多数据源操作" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/80d9ee68aa8583b1b2821cf7a85a302c.webp" />
+        <meta property="og:release_date" content="2025-03-17T09:41:51" />
+    <meta property="og:updated_time" content="2025-03-17T09:41:51" />
+        <meta property="og:description" content="多数据源  适用：一般工作时候会有多个数据库，每个库对应不同的业务数据。程序如果每次数据都访问同一个数据库，该数据库压力很大访问会很慢。  官方文档：https://baomidou.com/(建议多" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MybatisPlus拓展——实现多数据源操作">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        MybatisPlus拓展——实现多数据源操作                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown" style="font-size: 16px;"> <h2 id="多数据源">多数据源</h2> <blockquote> <p>适用：一般工作时候会有多个数据库，每个库对应不同的业务数据。程序如果每次数据都访问同一个数据库，该数据库压力很大访问会很慢。</p> </blockquote> <p>官方文档：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://baomidou.com/%EF%BC%88%E5%BB%BA%E8%AE%AE%E5%A4%9A%E7%9C%8B%E7%9C%8B%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%EF%BC%8C%E6%AF%8F%E7%A7%8D%E5%8A%9F%E8%83%BD%E9%87%8C%E9%9D%A2%E9%83%BD%E6%9C%89%E8%AE%B2%E8%A7%A3%EF%BC%89%E3%80%90%E6%9C%AC%E6%96%87%E7%AB%A0%E4%BD%BF%E7%94%A8%E7%9A%84mybatisplus%E7%89%88%E6%9C%AC%E4%B8%BA3.5.2%E3%80%91"  target="_blank" rel="nofollow">https://baomidou.com/(建议多看看官方文档，每种功能里面都有讲解)【本文章使用的mybatisplus版本为3.5.2】</a></p> <h3 id="约定">约定</h3> <ol> <li>本框架只做 <strong>切换数据源</strong> 这件核心的事情，并<strong>不限制你的具体操作</strong>，切换了数据源可以做任何CRUD。</li> <li>配置文件所有以下划线 <code>_</code> 分割的数据源 <strong>首部</strong> 即为组的名称，相同组名称的数据源会放在一个组下。</li> <li>切换数据源可以是组名，也可以是具体数据源名称。组名则切换时采用负载均衡算法切换。</li> <li>默认的数据源名称为 <strong>master</strong> ，你可以通过 <code>spring.datasource.dynamic.primary</code> 修改。</li> <li>方法上的注解优先于类上注解。</li> <li>DS支持继承抽象类上的DS，暂不支持继承接口上的DS。</li> </ol> <h3 id="使用">使用</h3> <p>1、导入依赖</p> <pre class="has"><code class="language-xml">&lt;dependency&gt;     &lt;groupId&gt;com.baomidou&lt;/groupId&gt;     &lt;artifactId&gt;dynamic-datasource-spring-boot-starter&lt;/artifactId&gt;     &lt;version&gt;3.5.1&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt;     &lt;groupId&gt;com.baomidou&lt;/groupId&gt;     &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;     &lt;version&gt;3.5.2&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>2、yaml 配置不同的数据源</p> <pre class="has"><code class="language-yaml">spring:   datasource:     dynamic:       primary: master #设置默认的数据源或者数据源组,默认值即为master       strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源       datasource:         master:           url: jdbc:mysql://xx.xx.xx.xx:3306/dynamic           username: root           password: 123456           driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置         slave_1:           url: jdbc:mysql://xx.xx.xx.xx:3307/dynamic           username: root           password: 123456           driver-class-name: com.mysql.jdbc.Driver         slave_2:           url: ENC(xxxxx) # 内置加密,使用请查看详细文档           username: ENC(xxxxx)           password: ENC(xxxxx)           driver-class-name: com.mysql.jdbc.Driver        #......省略        #以上会配置一个默认库master，一个组slave下有两个子库slave_1,slave_2</code></pre> <p>注：多数据源配置规范</p> <pre class="has"><code class="language-yaml"># 多主多从                      纯粹多库(记得设置primary)                   混合配置 spring:                               spring:                               spring:   datasource:                           datasource:                           datasource:     dynamic:                              dynamic:                              dynamic:       datasource:                           datasource:                           datasource:         master_1:                             mysql:                                master:         master_2:                             oracle:                               slave_1:         slave_1:                              sqlserver:                            slave_2:         slave_2:                              postgresql:                           oracle_1:         slave_3:                              h2:                                   oracle_2:</code></pre> <p>3、使用 <strong>@DS</strong> 切换数据源。</p> <p><strong>@DS</strong> 可以注解在方法上或类上，<strong>同时存在就近原则 方法上注解 优先于 类上注解</strong>。</p> <pre class="has"><code class="language-java">@Service @DS("slave") public class UserServiceImpl implements UserService {    @Autowired   private JdbcTemplate jdbcTemplate;    public List selectAll() {     return  jdbcTemplate.queryForList("select * from user");   }      @Override   @DS("slave_1")   public List selectByCondition() {     return  jdbcTemplate.queryForList("select * from user where age &gt;10");   } }</code></pre> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-75232.htm">狗狗免费领养中心临汾（临汾狗狗收容站）</a></p>
+                                        <p>下一个：<a href="/news/article-75927.htm">附近免费领养狗狗的地方在哪里呀 附近免费领养狗狗的地方在哪里呀电话</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-45689.htm" title="宠物狗衣服教程（宠物狗衣服教程视频）">宠物狗衣服教程（宠物狗衣服教程视频）</a></li>
+                        <li class="py-2"><a href="/news/article-40227.htm" title="动物疫苗种类及研究进展报告范文大全（动物疫苗种类及研究进展报告范文大全）">动物疫苗种类及研究进展报告范文大全（动物疫苗种类及研究进展报告范文大全）</a></li>
+                        <li class="py-2"><a href="/news/article-47660.htm" title="宠物买卖平台哪些最好（宠物售卖平台）">宠物买卖平台哪些最好（宠物售卖平台）</a></li>
+                        <li class="py-2"><a href="/news/article-75229.htm" title="动物疫苗和人体疫苗生产有什么区别呢视频（动物疫苗的概念）">动物疫苗和人体疫苗生产有什么区别呢视频（动物疫苗的概念）</a></li>
+                        <li class="py-2"><a href="/news/article-43202.htm" title="宠物领养网站的意义 宠物领养网站的意义是什么">宠物领养网站的意义 宠物领养网站的意义是什么</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-winxray-node-github.htm" title="「2月11日」最高速度18.9M/S，2025年WinXray每天更新免费节点订阅链接">「2月11日」最高速度18.9M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-51191.htm" title="被猫抓了没有破皮需要打针吗（被猫抓了但是没有破皮需要打针吗）">被猫抓了没有破皮需要打针吗（被猫抓了但是没有破皮需要打针吗）</a></li>
+                        <li class="py-2"><a href="/news/article-56657.htm" title="动物医院好评语大全集 动物医院好评语大全集怎么写">动物医院好评语大全集 动物医院好评语大全集怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-50693.htm" title="动物诊疗许可证申请（动物诊疗许可证申请表下载）">动物诊疗许可证申请（动物诊疗许可证申请表下载）</a></li>
+                        <li class="py-2"><a href="/news/article-46191.htm" title="天津宠物领养机构电话多少（天津宠物领养机构电话多少啊）">天津宠物领养机构电话多少（天津宠物领养机构电话多少啊）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
