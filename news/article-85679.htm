@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-85679.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我们如何借助组函数COUNT（*）和GROUP BY子句知道列中值的重复？</title>
+        <meta name="description" content="我们可以使用COUNT（*）和GROUP BY子句来找出列中值的重复。以下是示例，使用表“ Student”的“名称”列上的COUNT（*）和GROUP BY子句进行演示- mysql&gt;&nbs" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-85679.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="我们如何借助组函数COUNT（*）和GROUP BY子句知道列中值的重复？" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/9aac673dc904a775fbee9a536b00360f.webp" />
+        <meta property="og:release_date" content="2025-03-31T08:43:28" />
+    <meta property="og:updated_time" content="2025-03-31T08:43:28" />
+        <meta property="og:description" content="我们可以使用COUNT（*）和GROUP BY子句来找出列中值的重复。以下是示例，使用表“ Student”的“名称”列上的COUNT（*）和GROUP BY子句进行演示- mysql&gt;&nbs" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="我们如何借助组函数COUNT（*）和GROUP BY子句知道列中值的重复？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        我们如何借助组函数COUNT（*）和GROUP BY子句知道列中值的重复？                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<p>我们可以使用COUNT（*）和GROUP BY子句来找出列中值的重复。以下是示例，使用表“ Student”的“名称”列上的COUNT（*）和GROUP BY子句进行演示-</p> <pre>mysql&gt;&nbsp;select&nbsp;count(*),name&nbsp;from&nbsp;student&nbsp;group&nbsp;by&nbsp;name;  +----------+---------+ |&nbsp;count(*)&nbsp;|&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| +----------+---------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;| +----------+---------+  3&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>上面查询的结果集显示该值在该列中重复了多少次。在上面的示例中，“ Gaurav”在“名称”列中重复了两次。可以从下面的<strong>“ SELECT *”</strong>查询中验证相同内容-</p> <pre>mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;Student;  +------+---------+---------+-----------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| |&nbsp;15&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Commerce&nbsp;&nbsp;| |&nbsp;20&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;|&nbsp;Computers&nbsp;| +------+---------+---------+-----------+  4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84972.htm">动物疫苗注射部位有哪些 动物疫苗注射部位有哪些图片</a></p>
+                                        <p>下一个：<a href="/news/article-85680.htm">java实现选择排序（思路与实现）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-79998.htm" title="面试官：RabbitMQ过期时间设置、死信队列、延时队列怎么设计？">面试官：RabbitMQ过期时间设置、死信队列、延时队列怎么设计？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-high-speed-nodes.htm" title="「3月31日」最高速度19.4M/S，2025年WinXray每天更新免费节点订阅链接">「3月31日」最高速度19.4M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-winxray-github.htm" title="「3月14日」最高速度18.4M/S，2025年WinXray每天更新免费节点订阅链接">「3月14日」最高速度18.4M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-77962.htm" title="Vue2 中封装组件-消息提示 Message">Vue2 中封装组件-消息提示 Message</a></li>
+                        <li class="py-2"><a href="/news/article-79326.htm" title="动物疫苗的作用有哪些种类图片 动物疫苗的作用有哪些种类图片大全">动物疫苗的作用有哪些种类图片 动物疫苗的作用有哪些种类图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-70586.htm" title="宠物领养网站设计的需求调研（领养宠物app的项目策划书）">宠物领养网站设计的需求调研（领养宠物app的项目策划书）</a></li>
+                        <li class="py-2"><a href="/news/article-82089.htm" title="宠物粮食品牌起名大全图片及价格图（宠物粮食品牌都有什么）">宠物粮食品牌起名大全图片及价格图（宠物粮食品牌都有什么）</a></li>
+                        <li class="py-2"><a href="/news/article-86413.htm" title="大成路宠爱国际动物医院电话号码是多少（宠爱国际动物医院科怡路店电话）">大成路宠爱国际动物医院电话号码是多少（宠爱国际动物医院科怡路店电话）</a></li>
+                        <li class="py-2"><a href="/news/article-78651.htm" title="手写Mybatis第5章：数据源的解析、创建和使用">手写Mybatis第5章：数据源的解析、创建和使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-free-node-subscribe-links.htm" title="「3月26日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接">「3月26日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
