@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-88549.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kafka如果保证数据的可靠性</title>
+        <meta name="description" content="目录  数据的可靠性保证 副本数据同步策略 AR、ISR、OSR ACK应答机制 分区的leader和follower 故障处理 Controller介绍 Controller的选举 Controll" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-88549.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="Kafka如果保证数据的可靠性" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/a79d7e5253310157bd38f12e537f7413.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:12:06" />
+    <meta property="og:updated_time" content="2025-04-04T09:12:06" />
+        <meta property="og:description" content="目录  数据的可靠性保证 副本数据同步策略 AR、ISR、OSR ACK应答机制 分区的leader和follower 故障处理 Controller介绍 Controller的选举 Controll" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Kafka如果保证数据的可靠性">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        Kafka如果保证数据的可靠性                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#_1" rel="nofollow">数据的可靠性保证</a></li> <li><a href="#_5" rel="nofollow">副本数据同步策略</a></li> <li><a href="#ARISROSR_33" rel="nofollow">AR、ISR、OSR</a></li> <li><a href="#ACK_44" rel="nofollow">ACK应答机制</a></li> <li><a href="#leaderfollower_60" rel="nofollow">分区的leader和follower</a></li> <li><a href="#_69" rel="nofollow">故障处理</a></li> <li><a href="#Controller_78" rel="nofollow">Controller介绍</a></li> <li><a href="#Controller_83" rel="nofollow">Controller的选举</a></li> <li><a href="#Controllerpartition_leader_88" rel="nofollow">Controller选举partition leader</a></li> </ul> </div> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/a4b808011260bdef64ff5600b30cfbbe.jpg" alt="Kafka如果保证数据的可靠性"></p> <p>为保证 producer 发送的数据，能可靠的发送到指定的 topic，topic 的每个 partition 收到producer 发送的数据后，都需要向 producer 发送 ack（acknowledgement 确认收到），如果 producer 收到 ack，就会进行下一轮的发送，否则重新发送数据。</p> </h1> <table> <tbody> <tr> <th>方案</th> <th>优点</th> <th>缺点</th> </tr> <tr> <td>半数以上完成同步，就发送 ack</td> <td>延迟低</td> <td>选举新的 leader 时，容忍 n 台节点的故障，需要 2n+1 个副 本</td> </tr> <tr> <td>全部完成同步，才发送 ack</td> <td>选举新的 leader 时，容忍 n 台节点的故障，需要 n+1 个副 本</td> <td>延迟高</td> </tr> </tbody> </table> <p>Kafka 选择了第二种方案，原因如下：</p> <ol> <li>同样为了容忍 n 台节点的故障，第一种方案需要 2n+1 个副本，而第二种方案只需要 n+1 个副本，而Kafka 的每个分区都有大量的数据，第一种方案会造成大量数据的冗余。</li> <li>虽然第二种方案的网络延迟会比较高，但网络延迟对 Kafka 的影响较小。</li> </ol> </h1> <p>采用第二种方案之后，设想以下情景：leader 收到数据，所有 follower 都开始同步数据， 但有一个 follower，因为某种故障，迟迟不能与 leader 进行同步，那 leader 就要一直等下去， 直到它完成同步，才能发送 ack。这个问题怎么解决呢？<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/09bdb62f36d46e84beb2a3aeff8d38b1.jpg" alt="Kafka如果保证数据的可靠性"><br /> Kafka中，把 follower 可以按照不同状态分为三类 —— AR、ISR、OSR。</p> <ul> <li>分区的所有副本称为 「AR」（Assigned Replicas —— 已分配的副本）</li> <li>所有与leader副本保持一定程度同步的副本（包括 leader 副本在内）组成 「ISR」（In-Sync Replicas——在同步中的副本）</li> <li>由于 follower 副本同步滞后过多的副本（不包括 leader 副本）组成 「OSR」（Out-of-Sync Replias）</li> <li>AR = ISR + OSR</li> <li>正常情况下，所有的 follower 副本都应该与 leader 副本保持同步，即 AR = ISR，OSR 集合为空。</li> </ul> <p>Leader 维护了一个动态的<code>in-sync replica set (ISR)</code>，意为和 leader 保持同步的 follower 集合。当 ISR 中的 follower 完成数据的同步之后，leader 就会给 follower 发送 ack。如果 follower 长时间 未 向 leader 同 步 数 据 ， 则 该 follower 将 被 踢 出 ISR ， 该 时 间 阈 值 由<code>replica.lag.time.max.ms</code> 参数设定。Leader 发生故障之后，就会从 ISR 中选举新的 leader。</p> </h1> <p>对于某些不太重要的数据，对数据的可靠性要求不是很高，能够容忍数据的少量丢失， 所以没必要等 ISR 中的 follower 全部接收成功。<br /> 所以 Kafka 为用户提供了三种可靠性级别，用户根据对可靠性和延迟的要求进行权衡， 选择以下的配置：</p> <ul> <li> <p>0：producer 不等待 broker 的 ack，这一操作提供了一个最低的延迟，broker 一接收到还没有写入磁盘就已经返回，当 broker 故障时有可能<code>丢失数据</code>；<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/607d9e1956fc70538d151dd53c0c8299.jpg" alt="Kafka如果保证数据的可靠性"></p> </li> <li> <p>1：producer 等待broker 的 ack，partition 的 leader 落盘成功后返回 ack<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/b1535b4450814d3554e9daab2a6c311d.jpg" alt="Kafka如果保证数据的可靠性"></p> <p>如果在 follower 同步成功之前leader 故障，那么将会<code>丢失数据</code>；<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/654f43e3ab89de018b84913f8aab7e20.jpg" alt="Kafka如果保证数据的可靠性"></p> </li> <li> <p>-1（all）：producer 等待 broker 的 ack，partition 的 leader 和 follower 全部落盘成功后才返回 ack<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/dcee862c72c452bfc2b6177986e9dbac.jpg" alt="Kafka如果保证数据的可靠性"></p> <p>但是如果在 follower 同步完成后，broker 发送 ack 之前，leader 发生故障，那么会造成<code>数据重复</code>。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/7d33fc720177e26bdce11fba442e6df5.jpg" alt="Kafka如果保证数据的可靠性"></p> </li> </ul> </h1> <p>在 Kafka 中，每个 topic 都可以配置多个分区以及多个副本。每个分区都有一个 leader 以及 0 个或者多个follower，在创建 topic 时，Kafka 会将每个分区的 leader 均匀地分配在每个 broker 上。我们正常使用 kafka 是感觉不到 leader、follower 的存在的。但其实，所有的读写操作都是由 leader 处理，而所有的 follower 都复制 leader 的日志数据文件，如果 leader 出现故障时，follower 就会被选举为 leader。所以，可以这样说：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/d4fd15c24b32154de02c0fa2e683ac9f.jpg" alt="Kafka如果保证数据的可靠性"></p> <ul> <li>Kafka 中的 leader 负责处理读写操作，而 follower 只负责副本数据的同步</li> <li>如果 leader 出现故障，其他 follower 会被重新选举为 leader</li> <li>follower 像一个 consumer 一样，拉取 leader 对应分区的数据，并保存到日志数据文件中</li> </ul> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/32d90578aff6b6740ab3159a22ba4ad0.jpg" alt="Kafka如果保证数据的可靠性"><br /><strong>LEO：指的是每个副本最大的 offset；</strong><br /><strong>HW：指的是消费者能见到的最大的 offset，ISR 队列中最小的 LEO</strong></p> <ul> <li><strong>follower 故障</strong> <ul> <li>follower 发生故障后会被临时踢出 ISR，待该 follower 恢复后，follower 会读取本地磁盘记录的上次的 HW，并将 log 文件高于 HW 的部分截取掉，从 HW 开始向 leader 进行同步。等该 follower 的 LEO 大于等于该 Partition 的 HW，即 follower 追上 leader 之后，就可以重新加入 ISR 了。</li> </ul> </li> <li><strong>leader 故障</strong> <ul> <li>leader 发生故障之后，会从 ISR 中选出一个新的 leader，之后，为保证多个副本之间的数据一致性，其余的 follower 会先将各自的 log 文件高于 HW 的部分截掉，然后从新的 leader同步数据。<br /><font color="red"><strong>注：</strong></font>这只能保证副本之间的数据一致性，并不能保证数据不丢失或者不重复。</li> </ul> </li> </ul> </h1> <ul> <li>Kafka 启动时，会在所有的 broker 中选择一个 controller</li> <li>前面 leader 和 follower 是针对 partition，而 controller 是针对 broker 的</li> <li>创建 topic、或者添加分区、修改副本数量之类的管理任务都是由 controller 完成的</li> <li>Kafka 分区 leader 的选举，也是由 controller 决定的</li> </ul> </h1> <ul> <li>在 Kafka 集群启动的时候，每个 broker 都会尝试去 ZooKeeper 上注册成为 Controller（ZK临时节点）</li> <li>但只有一个竞争成功，其他的 broker 会注册该节点的监视器</li> <li>一但该临时节点状态发生变化，就可以进行相应的处理</li> <li>Controller 也是高可用的，一旦某个 broker 崩溃，其他的 broker 会重新注册为 Controller</li> </ul> </h1> <ul> <li>所有 Partition 的 leader 选举都由 controller 决定</li> <li>controller 会将 leader 的改变直接通过 RPC 的方式通知需为此作出响应的 Broker</li> <li>controller 读取到当前分区的 ISR，只要有一个 Replica 还幸存，就选择其中一个作为 leader，否则，则任意选择一个 Replica 作为 leader</li> <li>如果该 partition 的所有 Replica 都已经宕机，则新的 leader 为 -1</li> </ul> <p><strong>为什么不能通过ZK的方式来选举partition的leader？</strong></p> <ul> <li>Kafka 集群如果业务很多的情况下，会有很多的 partition</li> <li>假设某个 broker 宕机，就会出现很多的 partiton 都需要重新选举 leader</li> <li>如果使用 zookeeper 选举 leader，会给 zookeeper 带来巨大的压力。所以，kafka 中 leader 的选举不能使用 ZK 来实现</li> </ul> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87848.htm">宠物店一年赚多少钱（宠物店一个月利润怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-88550.htm">附近的动物医院正规（动物医院在哪里）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-free-node-subscribe-links.htm" title="「3月26日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接">「3月26日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-winxray-node.htm" title="「3月19日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接">「3月19日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-winxray-github.htm" title="「3月16日」最高速度22.8M/S，2025年WinXray每天更新免费节点订阅链接">「3月16日」最高速度22.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-71903.htm" title="关于Spring中@Order注解的使用">关于Spring中@Order注解的使用</a></li>
+                        <li class="py-2"><a href="/news/article-84972.htm" title="动物疫苗注射部位有哪些 动物疫苗注射部位有哪些图片">动物疫苗注射部位有哪些 动物疫苗注射部位有哪些图片</a></li>
+                        <li class="py-2"><a href="/news/article-69274.htm" title="养猫根本不需要买的东西（养猫需要买猫屋吗）">养猫根本不需要买的东西（养猫需要买猫屋吗）</a></li>
+                        <li class="py-2"><a href="/news/article-71232.htm" title="宠物食品加工厂手续代办要多少钱（宠物食品加工需要办什么证?）">宠物食品加工厂手续代办要多少钱（宠物食品加工需要办什么证?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-winxray-node-github.htm" title="「3月6日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接">「3月6日」最高速度20.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-85680.htm" title="java实现选择排序（思路与实现）">java实现选择排序（思路与实现）</a></li>
+                        <li class="py-2"><a href="/news/article-84227.htm" title="附近哪里有狗粮卖（附近哪里有狗粮卖的地方）">附近哪里有狗粮卖（附近哪里有狗粮卖的地方）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
