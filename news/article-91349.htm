@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-91349.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python实用技法第11篇：找出序列中出现次数最多的元素</title>
+        <meta name="description" content="上一篇文章：   Python实用技法第10篇：对切片命名   下一篇文章：   Python实用技法第12篇：通过公共键对字典列表排序：itemgetter       我们有一个元素序列，想知道在" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-91349.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="Python实用技法第11篇：找出序列中出现次数最多的元素" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/44889503ef320ab9778e0101a40d0139.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:55:57" />
+    <meta property="og:updated_time" content="2025-04-08T09:55:57" />
+        <meta property="og:description" content="上一篇文章：   Python实用技法第10篇：对切片命名   下一篇文章：   Python实用技法第12篇：通过公共键对字典列表排序：itemgetter       我们有一个元素序列，想知道在" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python实用技法第11篇：找出序列中出现次数最多的元素">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        Python实用技法第11篇：找出序列中出现次数最多的元素                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="article fmt article__content"> <blockquote><p>   上一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016683758"  rel="nofollow">Python实用技法第10篇：对切片命名</a><br />   <br />下一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016746124"  rel="nofollow">Python实用技法第12篇：通过公共键对字典列表排序：itemgetter</a>  </p></blockquote> </h1> <blockquote><p>   我们有一个元素序列，想知道在序列中出现次数最多的元素是什么？  </p></blockquote> </h1> <p>collections模块中国的Counter类正是为此类问题而设计的。它甚至有一个非常方便的most_common()方法可以告诉我们答案。可以给Counter对象提供任何可哈希的对象序列作为输入。</p> <ul> <li> <h5>实例：假设一个列表，其中有一些列的单词，我们想找出哪些单词出现的最为频繁：</h5> </li> </ul> <pre><code>from collections import Counter words=[ 'a','b','c','d','e','f', 'a','b','c','d','e','f', 'a','b','c', 'a','b', 'a' ] #利用Counter统计每个元素出现的个数 words_counts=Counter(words) #出现次数最多的3个元素 top_three=words_counts.most_common(3) #返回元素和出现次数 print(top_three)  #Counter底层是一个字典，可以在元素和他们出现的次数之间做映射，例如： #输出元素【f】出现的次数 print(words_counts['f'])  #如果想手动增加计数个数，只需要简单的自增 words_counts['f']+=1 print(words_counts['f'])  #如果想手动增加计数个数,还可以使用update()方法： #只针对元素【f】增加一次计数 words_counts.update('f') print(words_counts['f'])  #为所有计数增加一次 morewords=[ 'a','b','c','d','e','f' ] words_counts.update(morewords) print(words_counts['f'])</code></pre> <p>运行结果：</p> <pre><code>[('a', 5), ('b', 4), ('c', 3)] 2 3 4 5</code></pre> <ul> <li>Counter对象另一个不为人知的特性，那就是他们可以轻松地同各种数学运算操作结合起来使用。</li> </ul> <pre><code>from collections import Counter words1=[ 'a','b','c','d','e','f', 'a','b','c','d','e','f', 'a','b','c', 'a','b', 'a' ]  words2=[ 'a','b','c','d','e','f', 'a','b','c', 'a','b', 'a' ] one=Counter(words1) two=Counter(words2) print(one) print(two)  three=one+two print(three)  four=one-two print(four) </code></pre> <p>运行结果：</p> <pre><code>Counter({'a': 5, 'b': 4, 'c': 3, 'd': 2, 'e': 2, 'f': 2}) Counter({'a': 4, 'b': 3, 'c': 2, 'd': 1, 'e': 1, 'f': 1}) Counter({'a': 9, 'b': 7, 'c': 5, 'd': 3, 'e': 3, 'f': 3}) Counter({'a': 1, 'b': 1, 'c': 1, 'd': 1, 'e': 1, 'f': 1})</code></pre> <blockquote><p>   上一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016683758"  rel="nofollow">Python实用技法第10篇：对切片命名</a><br />   <br />下一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016746124"  rel="nofollow">Python实用技法第12篇：通过公共键对字典列表排序：itemgetter</a>  </p></blockquote> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90767.htm">狗粮315黑榜（315曝光狗粮品牌）</a></p>
+                                        <p>下一个：<a href="/news/article-91350.htm">SpringBoot中的Mysql时间类型dateTime格式转换配置</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-winxray-windows.htm" title="「3月25日」最高速度21.1M/S，2025年WinXray每天更新免费节点订阅链接">「3月25日」最高速度21.1M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-84971.htm" title="属马的适不适合养猫（属马的可以养猫吗?）">属马的适不适合养猫（属马的可以养猫吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-66076.htm" title="我们如何将MySQL返回的结果集分成几组？">我们如何将MySQL返回的结果集分成几组？</a></li>
+                        <li class="py-2"><a href="/news/article-75927.htm" title="附近免费领养狗狗的地方在哪里呀 附近免费领养狗狗的地方在哪里呀电话">附近免费领养狗狗的地方在哪里呀 附近免费领养狗狗的地方在哪里呀电话</a></li>
+                        <li class="py-2"><a href="/news/article-87848.htm" title="宠物店一年赚多少钱（宠物店一个月利润怎么样）">宠物店一年赚多少钱（宠物店一个月利润怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-winxray-node.htm" title="「3月19日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接">「3月19日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-winxray-node-github.htm" title="「3月7日」最高速度21.9M/S，2025年WinXray每天更新免费节点订阅链接">「3月7日」最高速度21.9M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-87106.htm" title="领养狗狗是怎么回事（领养狗的坏处）">领养狗狗是怎么回事（领养狗的坏处）</a></li>
+                        <li class="py-2"><a href="/news/article-73228.htm" title="秋季动物疫苗注射工作简报怎么写啊（秋季动物防疫工作进度简报）">秋季动物疫苗注射工作简报怎么写啊（秋季动物防疫工作进度简报）</a></li>
+                        <li class="py-2"><a href="/news/article-88549.htm" title="Kafka如果保证数据的可靠性">Kafka如果保证数据的可靠性</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
