@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://winxraynode.github.io/news/article-94088.htm" />
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>利用JavaScript实现秒表功能</title>
+        <meta name="description" content="&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;m" />
+        <link rel="icon" href="/assets/website/img/winxraynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="WinXray Node节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://winxraynode.github.io/news/article-94088.htm" />
+    <meta property="og:site_name" content="WinXray Node节点订阅站" />
+    <meta property="og:title" content="利用JavaScript实现秒表功能" />
+    <meta property="og:image" content="https://winxraynode.github.io/uploads/20240721/e264ac0e7eb6701e1ed017a657e6da9c.webp" />
+        <meta property="og:release_date" content="2025-04-12T08:54:31" />
+    <meta property="og:updated_time" content="2025-04-12T08:54:31" />
+        <meta property="og:description" content="&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;m" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="利用JavaScript实现秒表功能">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/bootstrap.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/winxraynode/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- OWL CAROUSEL -->
+    <link href="/assets/website/css/winxraynode/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/winxraynode/owl.theme.default.min.css" rel="stylesheet">
+    <!-- LIGHTBOX -->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/lightbox.css">
+    <!--Style CSS file-->
+    <link rel=" stylesheet" href="/assets/website/css/winxraynode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR13X0JQB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR13X0JQB2');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ====== Preloader ======  -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- ======End Preloader ======  -->
+    <!-- ======START NAVGITION ======  -->
+    <!-- Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                                <span>
+                    WinXray Node                </span>
+                                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">首页</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">免费节点</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">客户端</a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">新闻资讯</a>
+                        </li>
+                                            </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->
+    <!-- =======START HEADER=========== -->
+    <header class="home category" id="home" data-scroll-index="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+                    <h1 class="heading-primary mb-3 title">
+                        利用JavaScript实现秒表功能                    </h1>
+                    <p class="mb-5">
+                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ====== END HEADER ======  -->
+    <!-- Scroll to Top -->
+    <div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+    <!-- ====== START ABOUT ======  -->
+    <section class="about padding" id="about" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="XRayNode每日订阅站" data-url="https://xraynode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code>&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;     &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt;     &lt;div&gt;00:00:00:00&lt;/div&gt;     &lt;button &gt;开始&lt;/button&gt;     &lt;button disabled&gt;暂停&lt;/button&gt;     &lt;button disabled&gt;继续&lt;/button&gt;     &lt;button disabled&gt;重置&lt;/button&gt;     &lt;script&gt;         // 秒表功能分析         // 核心思路:         //   定义一个变量,根据定时器,每秒执行一次,每次执行++自增操作         //               变量存储的数值,就会每秒+1         //   现在需要的记录效果,是每0.01秒,也就是10毫秒执行一次         //   根据累计的数值,执行进位 ms 如果达到 100,就是1秒         //   如果 秒 达到 60 就是 1分钟         //   如果 分钟 达到 60 就是 1小时           // 获取按钮的标签对象         var oBtnStart = document.querySelectorAll('button')[0];         var oBtnPause = document.querySelectorAll('button')[1];         var oBtnContinue = document.querySelectorAll('button')[2];         var oBtnReset = document.querySelectorAll('button')[3];         var hour = minutes = seconds = millisecond = 0;          // 定义存储 时 分 秒 毫秒 字符串的变量         // 如果直接在 millisecond seconds minutes hour 变量上进行 拼接操作,会影响 ++操作的执行         // 单独的建立变量,来存储累加时间的执行结果         var ms = '';         var s = '';         var m = '';         var h = '';          // 因为定时器,是定义在函数内部,         // 必须定义一个全局变量,来存储定时器         // 在函数外部可以调用,终止定时器         var time = 0;                  // 获取div标签对象         var oDiv = document.querySelector('div');           //  开始按钮         oBtnStart.onclick = function(){             // 点击开始按钮,执行函数,执行秒表计时             timer();             oBtnStart.disabled = true;             oBtnPause.disabled = false;             oBtnContinue.disabled = true;             oBtnReset.disabled = true;         }         //  暂停按钮         oBtnPause.onclick = function(){             // 点击暂停按钮,清除定时器,终止秒表执行             clearInterval(time);             oBtnStart.disabled = true;             oBtnPause.disabled = true;             oBtnContinue.disabled = false;             oBtnReset.disabled = false;         }         //  继续按钮         oBtnContinue.onclick = function(){             // 点击继续按钮,继续执行定时器             timer();             oBtnStart.disabled = true;             oBtnPause.disabled = false;             oBtnContinue.disabled = true;             oBtnReset.disabled = true;          }         //  重置按钮         oBtnReset.onclick = function(){             // 点击重置按钮,将所有的数据,都恢复到0的状态             // 所有变量存储的数据都是 0 , div中的内容,也恢复到0             hour = minutes = seconds = millisecond = 0;             oDiv.innerHTML = '00:00:00:00'             oBtnStart.disabled = false;             oBtnPause.disabled = true;             oBtnContinue.disabled = true;             oBtnReset.disabled = true;         }          //  计时函数         function timer(){             // 赋值操作,将定时器,存储在全局作用域变量中             time = setInterval(function(){                 millisecond++;                 if( millisecond == 100){                     seconds++;                     millisecond = 0;                 }                 if( seconds == 60 ){                     minutes++;                     seconds = 0;                 }                 if( minutes == 60 ){                     hour++;                     minutes = 0;                 }              //  补零操作             // 如果记录的时间小于0,要做补零操作                 if( millisecond &lt; 10 ){                     ms = '0' + millisecond;                  }else{                     ms = millisecond;                  }                 if( seconds &lt; 10 ){                     s = '0' + seconds;                  }else{                     s = seconds;                  }                 if( minutes &lt; 10 ){                     m = '0' + minutes;                  }else{                     m = minutes;                  }                 if( hour &lt; 10 ){                     h = '0' + hour;                  }else{                     h = hour;                  }                 // 每次执行,返回一个记录时间的字符串                 // 将这个字符串,写入到div中                 oDiv.innerHTML = ` ${h}:${m}:${s}:${ms} `             },10);         }      &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; </code></pre> <p>实现效果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/748a4c5e411798ad5bbee69bad8026a7.jpg" alt="利用JavaScript实现秒表功能"><br /> 当点击开始时：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/ab006f85a97e54707f98a31d7fa0f26b.jpg" alt="利用JavaScript实现秒表功能"><br /> 当点击暂停时：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/206ae2518f5adb2a3a12b18778454caa.jpg" alt="利用JavaScript实现秒表功能"><br /> 当点击继续时：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/9dd0170bfd5904d40b2d5a6e22ebb198.jpg" alt="利用JavaScript实现秒表功能"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-93756.htm">宠物医院大众点评评语怎么写（宠物医院优质点评）</a></p>
+                                        <p>下一个：<a href="/news/article-94089.htm">python中借助subprocess产生和关闭子进程</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-78651.htm" title="手写Mybatis第5章：数据源的解析、创建和使用">手写Mybatis第5章：数据源的解析、创建和使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-winxray-node-github.htm" title="「3月17日」最高速度18.8M/S，2025年WinXray每天更新免费节点订阅链接">「3月17日」最高速度18.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-winxray-node-github.htm" title="「3月13日」最高速度22.5M/S，2025年WinXray每天更新免费节点订阅链接">「3月13日」最高速度22.5M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-79327.htm" title="动物疫苗哪里有卖 动物疫苗哪里有卖的">动物疫苗哪里有卖 动物疫苗哪里有卖的</a></li>
+                        <li class="py-2"><a href="/news/article-82827.htm" title="动物打一针疫苗多少钱（动物疫苗贵吗）">动物打一针疫苗多少钱（动物疫苗贵吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-winxray-node-github.htm" title="「3月18日」最高速度19M/S，2025年WinXray每天更新免费节点订阅链接">「3月18日」最高速度19M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-77274.htm" title="Nodejs对数据库的增删改查">Nodejs对数据库的增删改查</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-winxray-github.htm" title="「3月20日」最高速度20.5M/S，2025年WinXray每天更新免费节点订阅链接">「3月20日」最高速度20.5M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-84972.htm" title="动物疫苗注射部位有哪些 动物疫苗注射部位有哪些图片">动物疫苗注射部位有哪些 动物疫苗注射部位有哪些图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-winxray-windows.htm" title="「4月13日」最高速度22.6M/S，2025年WinXray每天更新免费节点订阅链接">「4月13日」最高速度22.6M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END ABOUT======  -->
+        <!-- ====== START FOOTER BOTTOM======  -->
+    <section class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 offset-md-3">
+                    <!-- START RIGHTS -->
+                    <div class="copyright">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>WinXray Node节点订阅站 版权所有</p>
+                        <p>Powered by WordPress</p>
+                    </div>
+                    <!-- END RIGHTS -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== END FOOTER BOTTOM======  -->
+    <!-- ====== JS ======  -->
+    <!--jquery-3.3.1 js-->
+    <script src="/assets/website/js/frontend/winxraynode/jquery-3.3.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/winxraynode/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/winxraynode/bootstrap.min.js"></script>
+    <!-- scrollIt js -->
+    <script src="/assets/website/js/frontend/winxraynode/scrollIt.min.js"></script>
+    <!-- countTo js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.countTo.js"></script>
+    <!-- filter js -->
+    <script src="/assets/website/js/frontend/winxraynode/jquery.filterizr.min.js"></script>
+    <!-- waypoints js -->
+    <script src="/assets/website/js/frontend/winxraynode/waypoints.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="/assets/website/js/frontend/winxraynode/owl.carousel.min.js"></script>
+    <!-- validator js -->
+    <script src="/assets/website/js/frontend/winxraynode/validator.js"></script>
+    <!-- coustom js -->
+    <script src="/assets/website/js/frontend/winxraynode/main.js"></script>
+    <!-- lightbox js -->
+    <script src="/assets/website/js/frontend/winxraynode/lightbox.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
