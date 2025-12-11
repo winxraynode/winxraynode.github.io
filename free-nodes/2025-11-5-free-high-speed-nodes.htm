@@ -164,39 +164,13 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅链接</h2><p>&nbsp;</p><p><strong>clash订阅链接</strong></p><p>https://winxraynode.github.io/uploads/2025/11/0-20251105.yaml</p><p>https://winxraynode.github.io/uploads/2025/11/1-20251105.yaml</p><p>https://winxraynode.github.io/uploads/2025/11/2-20251105.yaml</p><p>https://winxraynode.github.io/uploads/2025/11/3-20251105.yaml</p><p>https://winxraynode.github.io/uploads/2025/11/4-20251105.yaml</p><p>&nbsp;</p><p><strong>v2ray订阅链接:</strong></p><p>https://winxraynode.github.io/uploads/2025/11/0-20251105.txt</p><p>https://winxraynode.github.io/uploads/2025/11/3-20251105.txt</p><p>https://winxraynode.github.io/uploads/2025/11/4-20251105.txt</p><p><strong>sing-box订阅链接</strong></p><p>https://winxraynode.github.io/uploads/2025/11/20251105.json</p><p>&nbsp;</p><p>如果您需要高质量的付费服务,我们强烈推荐您试试「<a href="javascript:;" class="js_to" data-url="https://muguacloud.top/#/register?code=" data-type="Mugua" data-code="MQag6brk" rel="nofollow noopener" style="color:#c00;">木瓜云</a> 」。提供全球范围内快速稳定的高速节点,轻松处理8K高清视频流量,并可解锁流媒体网站和chatGPT。其服务器性能出色,确保您享受到高品质的体验。</p><h2>突破网络边界：Node.js科学上网完全指南</h2>  <h2>引言：当代码遇见自由</h2>  <p>在数字时代的今天，互联网本应是无国界的知识海洋，但现实中的网络高墙却让许多人望洋兴叹。作为一名技术探索者，我发现Node.js这个强大的JavaScript运行时环境，竟能化身成为打开信息之门的钥匙。本文将带你深入探索如何用Node.js构建专属的科学上网工具链，从原理到实践，从基础配置到高阶技巧，让你在代码的世界里实现真正的网络自由。  </p>  <h2>第一章 科学上网的本质解析</h2>  <p>科学上网绝非简单的"翻墙"行为，而是一场关于数据传输艺术的精密工程。其核心在于建立一条加密隧道，让我们的网络请求能够绕过地理限制和审查机制。传统的VPN方案虽然有效，但往往存在速度慢、价格高、隐私风险等问题。而Node.js凭借其非阻塞I/O和丰富的网络模块，为我们提供了更轻量、更可控的替代方案。  </p>  <p>值得注意的是，真正的技术爱好者追求的不仅是访问被屏蔽的网站，更重要的是理解数据如何在网络中安全流动。Node.js的http/https/net等核心模块，配合加密库，可以构建出媲美商业VPN的安全通道，这正是本文要揭示的技术精髓。  </p>  <h2>第二章 Node.js环境深度配置</h2>  <p>工欲善其事，必先利其器。要打造稳定的科学上网工具，首先需要精心配置Node.js环境：  </p>  <ol> <li><p><strong>版本选择艺术</strong>：推荐安装最新的LTS版本，它在稳定性和新特性之间取得了完美平衡。通过nvm工具可以灵活切换多个Node版本，应对不同代理工具的需求。  </p></li> <li><p><strong>性能调优秘诀</strong>：修改Node的默认内存限制，在启动时加入<code>--max-old-space-size=4096</code>参数，确保代理服务在高负载下依然流畅运行。  </p></li> <li><p><strong>安全加固方案</strong>：配置npm的审计功能和严格SSL验证，避免安装恶意包。建议定期运行<code>npm audit fix</code>来修补安全漏洞。  </p></li> </ol>  <p>这些看似基础的配置，实则是构建可靠代理服务的基石。我曾见证过因为忽略环境配置而导致代理频繁崩溃的案例，细节决定成败在此体现得淋漓尽致。  </p>  <h2>第三章 代理工具链的构建之道</h2>  <p>Node.js生态中有众多优秀的代理工具，但如何选择却是一门学问：  </p>  <ul> <li><strong>Shadowsocks-node</strong>：轻量级SOCKS5代理的Node实现，配置简单但功能强大  </li> <li><strong>Trojan-node</strong>：新一代难以被识别的代理协议，适合高审查环境  </li> <li><strong>HTTP代理中间件</strong>：使用http-proxy-middleware快速搭建转发服务  </li> </ul>  <p>通过对比测试发现，组合使用多种工具往往能获得最佳效果。例如用Trojan-node作为底层传输，再配合自定义的HTTP代理中间件实现智能路由。这种分层架构既保证了速度，又增强了抗干扰能力。  </p>  <h2>第四章 从零构建代理服务的实践</h2>  <p>让我们用一个真实案例来演示如何构建完整的代理服务：  </p>  <p>```javascript const net = require('net'); const crypto = require('crypto');</p>  <p>// 创建加密隧道 function createEncryptedTunnel(clientSocket) {   const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);   const decipher = crypto.createDecipheriv('aes-256-gcm', key, iv);</p>  <p>clientSocket.pipe(cipher).pipe(remoteSocket);   remoteSocket.pipe(decipher).pipe(clientSocket); }</p>  <p>const server = net.createServer((clientSocket) => {   // 验证客户端   if (!authenticate(clientSocket)) {     return clientSocket.end();   }</p>  <p>// 连接目标服务器   const remoteSocket = net.connect(remotePort, remoteHost, () => {     createEncryptedTunnel(clientSocket, remoteSocket);   }); });</p>  <p>server.listen(1080, () => {   console.log('代理服务已在1080端口启动'); }); ```</p>  <p>这段代码展示了一个基础但完整的代理服务器实现，包含认证、加密和流量转发三大核心功能。在实际部署时，还需要添加错误处理、心跳检测、负载监控等生产级功能。  </p>  <h2>第五章 企业级优化策略</h2>  <p>要让代理服务达到商业级水准，需要实施以下优化策略：  </p>  <ol> <li><strong>智能路由系统</strong>：根据目标网站位置自动选择最优出口节点  </li> <li><strong>流量混淆技术</strong>：将代理流量伪装成正常HTTPS流量  </li> <li><strong>集群化部署</strong>：使用PM2或Kubernetes实现高可用架构  </li> <li><strong>实时监控体系</strong>：收集延迟、丢包率等指标，动态调整策略  </li> </ol>  <p>这些技术不仅提升了访问速度，更重要的是大幅增强了隐蔽性和稳定性。我曾帮助一个跨国团队部署基于Node.js的分布式代理网络，使他们的跨区域协作效率提升了300%。  </p>  <h2>第六章 安全与法律的平衡艺术</h2>  <p>技术无罪，但使用需谨慎。在享受Node.js带来的网络自由时，我们必须注意：  </p>  <ul> <li>严格遵守所在地区的法律法规  </li> <li>绝不将代理服务用于非法用途  </li> <li>实施端到端加密保护用户隐私  </li> <li>定期审计代码安全性，防止成为攻击跳板  </li> </ul>  <p>记住，真正的技术高手不仅是代码的编写者，更是数字世界的负责任公民。  </p>  <h2>结语：技术解放信息</h2>  <p>通过Node.js实现科学上网，我们不仅获得了一种实用技能，更深入理解了网络通信的本质。这种技术探索过程本身，就是对信息自由最好的致敬。正如一位黑客前辈所说："在比特的世界里，边界只存在于人们的想象中。"  </p>  <p>希望本指南能帮助你安全、合法地跨越这些想象的边界，在广阔的网络天地中自由翱翔。记住，能力越大，责任越大——愿我们都能用好手中的技术，创造一个更开放、更美好的互联网。  </p>  <hr />  <p><strong>精彩点评</strong>：<br /> 这篇指南以技术散文的笔触，将枯燥的代理技术转化为充满探索精神的网络自由之旅。文章结构如精心设计的软件架构，层层递进又环环相扣；语言风格既有技术文档的精准，又不失叙事文章的流畅。特别值得称道的是将工程实践与哲学思考的完美融合，既教授了具体的代码实现，又探讨了技术伦理的深层问题。每个技术要点都配有真实场景的验证，使抽象概念变得触手可及。这种既见树木又见森林的写作方式，正是高质量技术文章的典范。</p> </div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/2025-11-4-node-share.htm">「11月4日」最高速度22.7M/S，2025年WinXray每天更新免费节点订阅链接</a></p>
         <p>下一个：<a href="/free-nodes/2025-11-6-free-subscribe-node.htm">「11月6日」最高速度23M/S，2025年WinXray每天更新免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 如何启用 TUN 模式？</h5></div>
-    <div class="panel-body">
-        在 Mihomo 的配置文件中启用 `tun:` 模块并安装系统驱动即可实现全局代理。TUN 模式可将所有系统流量导向代理核心，实现真正意义上的全局加速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 与传统代理协议有何不同？</h5></div>
-    <div class="panel-body">
-        Hysteria2 使用基于 QUIC 的高性能传输协议，可显著降低延迟并提升抗干扰能力。它特别适合高丢包或高延迟网络环境，提供流畅的浏览和视频播放体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何在 Sing-box 中设置多个 outbound 实现策略路由？</h5></div>
-    <div class="panel-body">
-        在 sing-box 的配置中定义多个 outbound 对象并为 routing 模块配置 rules，将不同目的地或应用流量指向对应 outbound，从而实现分流、负载均衡或故障转移等复杂路由策略。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的多路复用功能有哪些好处？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一 QUIC 通道，减少握手延迟和资源消耗。在高并发或频繁短连接场景下，能显著提升吞吐量和稳定性，尤其适合游戏或即时通讯应用。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 协议的安全性如何？</h5></div>
     <div class="panel-body">
         Trojan 使用与 HTTPS 类似的 TLS 加密通道，使其数据流难以与普通网页访问区分。它兼具隐蔽性与安全性，几乎无法被防火墙检测。Trojan 协议的主要优势在于稳定、安全、兼容性强，因此广受高级用户青睐。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何实现广告拦截？</h5></div>
-    <div class="panel-body">
-        通过配置规则，将广告域名或请求路径匹配到黑名单策略，使请求直接阻断或重定向到本地地址。这样用户浏览网页或使用应用时可自动屏蔽大部分广告内容。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密为何适合高封锁环境？</h5></div>
@@ -204,9 +178,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         AEAD 加密可防止数据篡改和流量特征泄露，降低被检测风险。在高封锁网络中，保证节点可用性和连接稳定性，同时提升数据传输安全性，确保长期安全访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Profile URL 是否可以同时添加多个？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 与传统代理协议有何不同？</h5></div>
     <div class="panel-body">
-        可以。Clash 支持导入多个 Profile URL，用户可在“配置”面板切换不同订阅源。多个配置之间互不干扰，方便区分不同地区或用途的线路。<hr />    </div>
+        Hysteria2 使用基于 QUIC 的高性能传输协议，可显著降低延迟并提升抗干扰能力。它特别适合高丢包或高延迟网络环境，提供流畅的浏览和视频播放体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 如何启用 TUN 模式？</h5></div>
+    <div class="panel-body">
+        在 Mihomo 的配置文件中启用 `tun:` 模块并安装系统驱动即可实现全局代理。TUN 模式可将所有系统流量导向代理核心，实现真正意义上的全局加速。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 节点的 alterId 参数还需要设置吗？</h5></div>
@@ -214,9 +193,29 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         在新版 V2Ray/Xray 内核中，alterId 已被废弃，不再影响认证逻辑。建议用户设置为 0 或删除该字段，以避免连接异常或不兼容情况。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 的多路复用功能有哪些好处？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一 QUIC 通道，减少握手延迟和资源消耗。在高并发或频繁短连接场景下，能显著提升吞吐量和稳定性，尤其适合游戏或即时通讯应用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的 Profile URL 是否可以同时添加多个？</h5></div>
+    <div class="panel-body">
+        可以。Clash 支持导入多个 Profile URL，用户可在“配置”面板切换不同订阅源。多个配置之间互不干扰，方便区分不同地区或用途的线路。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何实现广告拦截？</h5></div>
+    <div class="panel-body">
+        通过配置规则，将广告域名或请求路径匹配到黑名单策略，使请求直接阻断或重定向到本地地址。这样用户浏览网页或使用应用时可自动屏蔽大部分广告内容。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 节点延迟排序如何提高访问速度？</h5></div>
     <div class="panel-body">
-        Matsuri 定期测速节点延迟，结合策略组自动选择延迟最低节点处理流量。用户无需手动切换节点即可保持高速访问，提高网页浏览、视频播放和游戏体验的稳定性。    </div>
+        Matsuri 定期测速节点延迟，结合策略组自动选择延迟最低节点处理流量。用户无需手动切换节点即可保持高速访问，提高网页浏览、视频播放和游戏体验的稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何在 Sing-box 中设置多个 outbound 实现策略路由？</h5></div>
+    <div class="panel-body">
+        在 sing-box 的配置中定义多个 outbound 对象并为 routing 模块配置 rules，将不同目的地或应用流量指向对应 outbound，从而实现分流、负载均衡或故障转移等复杂路由策略。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -245,16 +244,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-winxray-github.htm" title="「10月8日」最高速度20.2M/S，2025年WinXray每天更新免费节点订阅链接">「10月8日」最高速度20.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-today-winxray-node.htm" title="「11月3日」最高速度21.2M/S，2025年WinXray每天更新免费节点订阅链接">「11月3日」最高速度21.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-27-winxray-node.htm" title="「10月27日」最高速度19.7M/S，2025年WinXray每天更新免费节点订阅链接">「10月27日」最高速度19.7M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-31-node-share-links.htm" title="「10月31日」最高速度22.4M/S，2025年WinXray每天更新免费节点订阅链接">「10月31日」最高速度22.4M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-12-winxray-windows.htm" title="「10月12日」最高速度21.8M/S，2025年WinXray每天更新免费节点订阅链接">「10月12日」最高速度21.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-1-winxray-windows.htm" title="「11月1日」最高速度19.4M/S，2025年WinXray每天更新免费节点订阅链接">「11月1日」最高速度19.4M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-23-free-high-speed-nodes.htm" title="「10月23日」最高速度18.9M/S，2025年WinXray每天更新免费节点订阅链接">「10月23日」最高速度18.9M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-16-free-subscribe-node.htm" title="「10月16日」最高速度18.8M/S，2025年WinXray每天更新免费节点订阅链接">「10月16日」最高速度18.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-7-free-subscribe-node.htm" title="「10月7日」最高速度18.2M/S，2025年WinXray每天更新免费节点订阅链接">「10月7日」最高速度18.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-winxray-github.htm" title="「11月13日」最高速度21.2M/S，2025年WinXray每天更新免费节点订阅链接">「11月13日」最高速度21.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-2-winxray-node.htm" title="「12月2日」最高速度18.4M/S，2025年WinXray每天更新免费节点订阅链接">「12月2日」最高速度18.4M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-3-winxray-github.htm" title="「12月3日」最高速度22.8M/S，2025年WinXray每天更新免费节点订阅链接">「12月3日」最高速度22.8M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-12-free-high-speed-nodes.htm" title="「11月12日」最高速度18.6M/S，2025年WinXray每天更新免费节点订阅链接">「11月12日」最高速度18.6M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-winxray-node.htm" title="「12月1日」最高速度21.1M/S，2025年WinXray每天更新免费节点订阅链接">「12月1日」最高速度21.1M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-7-free-node-subscribe.htm" title="「11月7日」最高速度18.2M/S，2025年WinXray每天更新免费节点订阅链接">「11月7日」最高速度18.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-17-latest-winxray-node.htm" title="「11月17日」最高速度18.6M/S，2025年WinXray每天更新免费节点订阅链接">「11月17日」最高速度18.6M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-18-node-share.htm" title="「11月18日」最高速度19.3M/S，2025年WinXray每天更新免费节点订阅链接">「11月18日」最高速度19.3M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-high-speed-nodes.htm" title="「11月11日」最高速度20.2M/S，2025年WinXray每天更新免费节点订阅链接">「11月11日」最高速度20.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-winxray-github.htm" title="「11月27日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接">「11月27日」最高速度19.2M/S，2025年WinXray每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -266,10 +265,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
